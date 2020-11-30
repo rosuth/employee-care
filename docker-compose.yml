@@ -1,0 +1,19 @@
+version: '3'
+services:
+    springboot:
+        container_name: employeecare
+        image: 100598/employeecare:1.0
+        ports: 
+        - 8080:8080
+    mysql:
+        container_name: mysql
+        image: mysql:5.7
+        environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_USER=jeff
+        - MYSQL_PASSWORD=1234
+        - MYSQL_DATABASE=EMPLOYEECARE
+        volumes:
+        - appvolume:/var/lib/mysql
+volumes:
+    appvolume:  
