@@ -1,0 +1,61 @@
+.w3-bar-item {
+font-family: 'Roboto Slab', serif;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.w3-bar-block .w3-bar-item{
+	padding: 4px 8px;
+}
+
+.w3-button {
+font-family: 'Roboto Slab', serif;
+	font-size: 15px;
+	color: white;
+	text-decoration: none;
+	margin-top: 1px;
+}
+
+.w3-button:hover {
+font-family: 'Roboto Slab', serif;
+	font-size: 15px;
+	text-decoration: none;
+	background-color:red;
+}
+
+.w3-sidebar {
+	background-color: #312d40;
+	color: white;
+}
+
+h3 {
+font-family: 'Roboto Slab', serif;
+	font-size: 22px;
+	margin-top: 20px;
+	border-bottom: 2px solid black;
+	margin: 0px;
+	margin-right: -20px;
+	margin-left: -20px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#admin-icon{
+    font-size: 26px;
+    color: #1a9ce7;
+    margin-right: 8px;
+}
+#hor-rule{
+border: .5px solid white;
+width:60%;
+margin: auto;
+margin-top:10px;
+margin-bottom:10px;
+}
+#app-name {
+    font-family: 'DM Serif Display', serif;
+    color: #5c5771;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 300px;
+}

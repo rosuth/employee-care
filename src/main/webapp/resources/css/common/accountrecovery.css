@@ -1,0 +1,56 @@
+#recover-account-button {
+font-family: 'Roboto Slab', serif;
+background-color: white;
+color: #2381de;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
+}
+
+#recover-account-button:hover {
+font-family: 'Roboto Slab', serif;
+background-color: #2381de;
+color: white;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
+}
+
+#id-label, #firstname-label, #email-label {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+
+#login-as-employee-button{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	color:black;
+}
+
+#login-as-employee-button-header{
+	text-align:center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number], input[type=password] {
+  -moz-appearance: textfield;
+  width:100px;
+}
+
+
+td{
+	  width:100px;
+	  text-align:left;
+}

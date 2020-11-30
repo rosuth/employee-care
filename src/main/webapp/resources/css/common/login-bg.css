@@ -1,0 +1,20 @@
+/* body {
+	background-image:url('../../images/loginbackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover
+} */
+body {
+	background-image: linear-gradient(to right, #ffffff, #2381de);
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+#bottom-links {
+	margin-top: 124px;
+	font-family: 'Roboto Slab', serif;
+	font-family:16px;
+	text-align: center;
+}

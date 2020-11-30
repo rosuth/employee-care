@@ -1,0 +1,65 @@
+#topbar-heading {
+	font-family: 'Roboto Slab', serif;
+	font-size: 23px;
+}
+
+#tb1{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#tb2{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#tb3{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#tb4{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+.tb{
+	border: 1.5px solid black;
+    width: 24%;
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+#bb1{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#bb2{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#bb3{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+#bb4{
+	float:left;
+    background-image: linear-gradient(to right, #686573 , #1a9ce7);
+}
+
+.bb{
+	border: 1.5px solid black;
+    width: 24%;
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+h4, h1{
+	font-family: 'Roboto Slab', serif;
+	color: white;
+}

@@ -1,0 +1,141 @@
+#parent-div {
+	position: absolute;
+	width: 800px;
+	z-index: 15;
+	top: 50%;
+	left: 50%;
+	margin: -250px 0 0 -400px;
+}
+
+#left-div {
+	float: left;
+	width: 400px;
+	height: 500px;
+	background-color: #2381de;
+}
+
+#right-div {
+	width: 400px;
+	float: left;
+	height: 500px;
+	background-color: #ffffff;
+}
+
+#app-name {
+	font-family: 'DM Serif Display', serif;
+	color: white;
+	text-align: center;
+}
+
+#app-description {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	color: white;
+	margin-left: 10px;
+}
+
+#login-header {
+font-family: 'Roboto Slab', serif;
+font-weight: 700;
+color: #2381de;
+text-align: center;
+margin-top: 35%;
+}
+
+#login-failed-header{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 500;
+    color: #ff0000;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+form {
+	text-align: center;
+}
+
+#id-label, #password-label, #aid-label {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+#id-input {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+#password-input {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+#id-input {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+#admin-login-button {
+font-family: 'Roboto Slab', serif;
+background-color: white;
+color: #2381de;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
+}
+
+#admin-login-button:hover {
+font-family: 'Roboto Slab', serif;
+background-color: #2381de;
+color: white;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
+}
+
+#login-as-employee-button{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	color:black;
+}
+
+#login-trouble{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	color:black;
+}
+
+#login-trouble-header{
+	text-align:center;
+}
+
+#login-as-employee-button-header{
+	text-align:center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number], input[type=password] {
+  -moz-appearance: textfield;
+  width:100px;
+}
+
+
+td{
+	  width:100px;
+	  	  text-align:left;
+}
