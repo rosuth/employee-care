@@ -5,7 +5,7 @@
 function employeeNotFound(){
 	debugger
 	alert("No Employee Record Found. \nMake sure you enter correct credentials");
-	window.location.replace("/employeecare");
+	window.location.replace("/app/emplogin");
 }
 </script>
 </head>

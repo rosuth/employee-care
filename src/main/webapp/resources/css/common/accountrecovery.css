@@ -1,21 +1,14 @@
 #recover-account-button {
-font-family: 'Roboto Slab', serif;
-background-color: white;
-color: #2381de;
-border: 2px solid #2381de;
-height: 34px;
-font-size: 16px;
-margin-top: 20px;
-}
-
-#recover-account-button:hover {
-font-family: 'Roboto Slab', serif;
-background-color: #2381de;
-color: white;
-border: 2px solid #2381de;
-height: 34px;
-font-size: 16px;
-margin-top: 20px;
+	border: 3px solid #2381de;
+	background: #2381de;
+	font-size: 16px;
+	font-family: 'Roboto Slab';
+	padding: 5px;
+	border-radius: 3px;
+	text-align:center;
+	margin-top:20px;
+	color:white;
+	margin-top:20px;
 }
 
 #id-label, #firstname-label, #email-label {

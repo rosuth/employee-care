@@ -4,7 +4,7 @@
 <script>
 function profileNotFound(){
 	alert("Employee Not Found. Redirecting to Dashboard");
-	window.location.replace("/employeecare/admindashboard");
+	window.location.replace("/app/admdashboard");
 }
 </script>
 </head>

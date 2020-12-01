@@ -4,7 +4,7 @@
 <script>
 function adminNotFound(){
 	alert("Are you sure, you own an Admin account?");
-	window.location.replace("/employeecare/adminlogin");
+	window.location.replace("/app/adminlogin");
 }
 </script>
 </head>

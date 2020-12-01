@@ -9,27 +9,51 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Component
 public class NavigationController {
 
-	@RequestMapping("/employeelogin")
+	@RequestMapping("/emplogin")
     public String home() {
         return "authentication/employeelogin";
     }
 	
-	@RequestMapping("/")
-    public String home1() {
+	@RequestMapping("/admlogin")
+	public String adminLogin() {
+		return "authentication/adminLogin";
+	}
+	
+	@RequestMapping("/app")
+    public String contextPath() {
         return "index";
     }
 	
+	@RequestMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+	@RequestMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+	
+	@RequestMapping("/support")
+    public String support() {
+        return "support";
+    }
+	
+	@RequestMapping("/createaccount")
+    public String home2() {
+        return "createaccount";
+    }	
 	@RequestMapping("viewEmployeeProfile")
 	public String viewEmployeeProfile(){
 		return "viewEmployeeProfile";
 	}
 
-	@RequestMapping(value = "/admindashboard")
+	@RequestMapping(value = "/admdashboard")
 	public String adminHomepage() {
 		return "admin/adminHomepage";
 	}
 	
-	@RequestMapping(value = "/employeedashboard", method=RequestMethod.GET)
+	@RequestMapping(value = "/empdashboard", method=RequestMethod.GET)
 	public String employeeHomepage() {
 		return "employee/employeeHomepage";
 	}
@@ -69,12 +93,7 @@ public class NavigationController {
 		return "sendEmailForm";
 	}
 
-	@RequestMapping("/adminlogin")
-	public String adminLogin() {
-		return "authentication/adminLogin";
-	}
-
-	@RequestMapping(value = "/accountrecovery", method = RequestMethod.GET)
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
 	public String accountRecovery() {
 		return "authentication/accountRecovery";
 	}

@@ -15,20 +15,20 @@ function recoverSentAck(){
 }
 </script>
 </head>
-<body onload="systemAlert()">
+<body">
 	<div id="parent-div">
 		<jsp:include page="/WEB-INF/views/common/login/app-info.jsp"></jsp:include>
 		<div id="right-div">
 			<h2 id="login-header">Recover Account</h2>
-			<form action="recoveraccount" method="POST" onsubmit="recoverSentAck()">
+			<form action="/app/forgotpassword" method="POST" onsubmit="recoverSentAck()">
 				<table style="margin-left: 81px;">
-					<tr><td id="id-label"><label>Employee ID </label></td><td><input type="number" size="10" name="eid" required="true"></td></tr>
-					<tr><td id="firstname-label"><label>Firstname </label></td><td><input type="text" size="10" name="firstname" required="true"></td></tr>
-					<tr><td id="email-label"><label>Email </label></td><td><input type="email" size="10" name="email" required="true"></td></tr>
+					<tr><td id="id-label"><label>Employee ID </label></td><td><input type="number" size="15" name="eid" required="true"></td></tr>
+					<tr><td id="firstname-label"><label>Firstname </label></td><td><input type="text" size="15" name="firstname" required="true"></td></tr>
+					<tr><td id="email-label"><label>Email </label></td><td><input type="email" size="15" name="email" required="true"></td></tr>
 					<tr><td colspan="2"><input type="submit" id="recover-account-button" value="Recover Account"></td></tr>
 				</table>
 			</form>
-			<h4 id="login-as-employee-button-header"><a id="login-as-employee-button" href="employeelogin">Own an Employee account? Login here</a></h4>
+			<h4 id="login-as-employee-button-header"><a id="login-as-employee-button" href="/app/admlogin">Admin Login</a><a id="login-as-employee-button" href="/app/emplogin">Employee Login</a></h4>
 		</div>
 	</div>
 </body>

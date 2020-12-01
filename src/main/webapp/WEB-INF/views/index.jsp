@@ -1,18 +1,23 @@
 <!doctype html>
 <head>
-<meta charset="ISO-8859-1"> 
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/base.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common/login-bg.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/employee-login.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css">
 <title>Employee Care</title>
 </head>
 <body>
-
-<h1>Welcome to Employee Care</h1>
-
-<h2><a href="adminlogin">Login as Admin</a></h2>
-<h2><a href="employeelogin">Login as Employee</a></h2>
-
+	<div id="parent-div">
+		<jsp:include page="/WEB-INF/views/common/login/app-info.jsp"></jsp:include>
+		<div id="right-div">
+			<h2 id="login-header">Login to your account</h2>
+			<div id="bottom-div">
+				<button id="adminbutton"><a href="/app/admlogin">Admin Login</a></button>
+				<button id="employeebutton"><a href="/app/emplogin">Employee Login</a></button><br/><br/>
+				<a id="account-create-link" href="/app/createaccount">Create New Account</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

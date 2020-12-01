@@ -40,12 +40,12 @@ public class EmployeeController {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	@RequestMapping(value = "/employeedashboard", method=RequestMethod.POST)
-	public String employeeLogin(@RequestParam("eid") int eid, @RequestParam("password") String password, Model model) throws ObjectNotFoundException{
+	@RequestMapping(value = "/empdashboard", method=RequestMethod.POST)
+	public String employeeLogin(@RequestParam("email") String email, @RequestParam("password") String password, Model model) throws ObjectNotFoundException{
 		try {
-			Employee emp = employeeRepository.findById(eid);
+			Employee emp = employeeRepository.findByEmail(email);
 			model.addAttribute("employee", emp);
-			if(eid==emp.getEid() && password.equals(emp.getPassword())) 
+			if(email.equals(emp.getEmail()) && password.equals(emp.getPassword())) 
 				return "employee/employeeHomepage";
 			else 
 				return "exceptions/employeeLoginError";
@@ -55,12 +55,12 @@ public class EmployeeController {
 		}
 	}
 	
-	@RequestMapping(value = "/admindashboard", method = RequestMethod.POST)
-	String login(@RequestParam("aid") int aid, @RequestParam("password") String password, Model model) {
+	@RequestMapping(value = "/admdashboard", method = RequestMethod.POST)
+	String login(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
 		try {
-			Admin admin = adminRepository.findById(aid);
+			Admin admin = adminRepository.findByEmail(email);
 			model.addAttribute("admin", admin);
-			if(aid==admin.getAid() && password.equals(admin.getPassword())) 
+			if(email.equals(admin.getEmail()) && password.equals(admin.getPassword())) 
 				return "admin/adminHomepage";
 			else 
 				return "exceptions/adminLoginError";
@@ -70,10 +70,10 @@ public class EmployeeController {
 		}
 	}
 	
-	@RequestMapping(value = "/recoveraccount", method = RequestMethod.POST)
+	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
 	public String recoverAccount(Model model, @RequestParam("eid") int eid, @RequestParam("firstname") String firstname, @RequestParam("email") String email, HttpServletRequest request){
 		try {
-			Employee emp = employeeRepository.findById(eid);
+			Employee emp = employeeRepository.findByEmail(email);
 			model.addAttribute("employee", emp);
 			if(eid==emp.getEid() && firstname.equals(emp.getFirstname()) && email.equals(emp.getEmail())) {
 				String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
@@ -148,7 +148,7 @@ public class EmployeeController {
 		welcomeemail.setSubject(subject);
 		welcomeemail.setText(message);
 		mailSender.send(welcomeemail);
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 	
 	@RequestMapping(value= "leaveApplied", method = RequestMethod.POST)
@@ -162,13 +162,13 @@ public class EmployeeController {
 		if(emp.getEid() != 0){
 			this.employeeRepository.save(emp);
 		}
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 
 	@RequestMapping("/deleteemployee/{eid}")
 	public String removeEmployee(@PathVariable("eid") long eid){
 		this.employeeRepository.deleteById(eid);
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 
 	@RequestMapping(value="/editemployee/{eid}", method=RequestMethod.GET)
@@ -227,7 +227,7 @@ public class EmployeeController {
 		email.setSubject(subject);
 		email.setText(message);
 		mailSender.send(email);
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 	
 	@RequestMapping(value="/sendRejectEmail",method=RequestMethod.POST)
@@ -240,7 +240,7 @@ public class EmployeeController {
 		email.setSubject(subject);
 		email.setText(message);
 		mailSender.send(email);
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 	
 	@RequestMapping(value="/sendApproveEmail",method=RequestMethod.POST)
@@ -253,6 +253,6 @@ public class EmployeeController {
 		email.setSubject(subject);
 		email.setText(message);
 		mailSender.send(email);
-		return "redirect:/admindashboard";
+		return "redirect:/admdashboard";
 	}
 }

@@ -1,3 +1,29 @@
+#adminbutton, #employeebutton {
+	border: 3px solid #2381de;
+	background: #2381de;
+	font-size: 16px;
+	font-family: 'Roboto Slab';
+	padding: 5px;
+	border-radius: 3px;
+	text-align:center;
+}
+
+a {
+	text-decoration: none;
+}
+
+#account-create-link{
+	font-family: 'Roboto Slab', serif;
+	font-size: 16px;
+	width: 70%;
+	color: #2381de;
+	font-weight: bold;
+}
+
+#bottom-div{
+	text-align:center;
+}
+
 #parent-div {
 	position: absolute;
 	width: 800px;
@@ -79,17 +105,24 @@ form {
 }
 
 #admin-login-button {
-	border: 3px solid #2381de;
-	background: #2381de;
-	font-size: 16px;
-	font-family: 'Roboto Slab';
-	padding: 5px;
-	border-radius: 3px;
-	text-align:center;
-	margin-top:20px;
-	color:white;
+font-family: 'Roboto Slab', serif;
+background-color: white;
+color: #2381de;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
 }
 
+#admin-login-button:hover {
+font-family: 'Roboto Slab', serif;
+background-color: #2381de;
+color: white;
+border: 2px solid #2381de;
+height: 34px;
+font-size: 16px;
+margin-top: 20px;
+}
 
 #login-as-employee-button{
 	font-family: 'Roboto Slab', serif;
@@ -97,7 +130,6 @@ form {
 	font-size: 16px;
 	text-align: center;
 	color:black;
-	    padding-right: 10px;
 }
 
 #login-trouble{
@@ -121,6 +153,13 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Firefox */
+input[type=number], input[type=password] {
+  -moz-appearance: textfield;
+  width:100px;
+}
+
 
 td{
 	  width:100px;

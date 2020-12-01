@@ -45,6 +45,10 @@ public class Admin {
 				            name = "ROLE_ID", referencedColumnName = "ID"))
 	
 	private Collection<Role> roles;
+	
+	public Admin() {
+
+	}
 
 	public Admin(String firstname, String lastname, String email, String password, Collection<Role> roles) {
 		this.firstname = firstname;
