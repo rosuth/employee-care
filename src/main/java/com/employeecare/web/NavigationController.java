@@ -19,7 +19,7 @@ public class NavigationController {
 		return "authentication/adminLogin";
 	}
 	
-	@RequestMapping("/app")
+	@RequestMapping("/")
     public String contextPath() {
         return "index";
     }

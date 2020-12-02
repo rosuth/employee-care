@@ -12,7 +12,7 @@
 	<groupId>net.javaguides</groupId>
 	<artifactId>registration-login-spring-boot-security-thymeleaf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 	<name>registration-login-spring-boot-security-thymeleaf</name>
 	<description>Demo project for Spring Boot Thymeleaf and Hibernate </description>
 
