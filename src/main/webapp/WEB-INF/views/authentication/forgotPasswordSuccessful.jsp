@@ -1,13 +1,13 @@
 <!doctype html>
 <head>
-<title>Employee Care</title>
+<title>Forgot Password Email Sent</title>
 <script>
-function accountRecoverySuccess(){
+function forgotPasswordAlert(){
 	alert("Email has been sent on your registered email.\nKindly follow the steps given in the email to recover your account.");
-	window.location.replace("/employeecare/");
+	window.location.replace("/app");
 }
 </script>
 </head>
-<body onload="accountRecoverySuccess()">
+<body onload="forgotPasswordAlert()">
 </body>
 </html>

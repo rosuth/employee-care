@@ -11,10 +11,10 @@
 <title>Employee Care</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/employee/employeesidebar.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/employee/employeeSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="topbar-heading">Dashboard</h3>
+			<h3 id="dashboard-heading">Dashboard</h3>
 		</div>
 		<div id="dashboard-body">
 			<div id="top-boxes">

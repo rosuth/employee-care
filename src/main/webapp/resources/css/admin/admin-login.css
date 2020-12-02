@@ -54,7 +54,7 @@ form {
 	text-align: center;
 }
 
-#id-label, #password-label, #aid-label {
+#email-label, #password-label, #aemail-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -91,7 +91,7 @@ form {
 }
 
 
-#login-as-employee-button{
+#employee-login-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -100,7 +100,7 @@ form {
 	    padding-right: 10px;
 }
 
-#login-trouble{
+#forgot-password-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -108,11 +108,11 @@ form {
 	color:black;
 }
 
-#login-trouble-header{
+#forgot-password-link-header{
 	text-align:center;
 }
 
-#login-as-employee-button-header{
+#login-page-bottom-links{
 	text-align:center;
 }
 

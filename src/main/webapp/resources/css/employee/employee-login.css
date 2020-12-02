@@ -55,7 +55,7 @@ form {
 	text-align: center;
 }
 
-#id-label, #password-label, #email-label {
+#email-label, #password-label, #email-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -101,7 +101,7 @@ form {
 	padding-right: 10px;
 }
 
-#login-trouble {
+#forgot-password-link {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -109,7 +109,7 @@ form {
 	color: black;
 }
 
-#login-trouble-header {
+#forgot-password-link-header {
 	text-align: center;
 }
 

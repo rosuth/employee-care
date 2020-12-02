@@ -1,4 +1,4 @@
-#recover-account-button {
+#forgot-password-button {
 	border: 3px solid #2381de;
 	background: #2381de;
 	font-size: 16px;
@@ -11,14 +11,14 @@
 	margin-top:20px;
 }
 
-#id-label, #firstname-label, #email-label {
+#email-label, #firstname-label, #email-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
 }
 
 
-#login-as-employee-button{
+#employee-login-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -26,7 +26,7 @@
 	color:black;
 }
 
-#login-as-employee-button-header{
+#login-page-bottom-links{
 	text-align:center;
 }
 

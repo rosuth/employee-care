@@ -23,14 +23,14 @@ function BadRequestAlert(){
 </script>
 </head>
 <body onload="BadRequestAlert()">
-	<jsp:include page="/WEB-INF/views/common/admin/adminsidebar.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="topbar-heading">Update Employee</h3>
+			<h3 id="dashboard-heading">Update Employee</h3>
 		<div>
 				<div>
-					<c:url var="addAction" value="/employee/update"></c:url>
-					<form:form action="${addAction}" commandName="employee">
+					<c:url var="addAction" value="/admdashboard/employee/update"></c:url>
+					<form:form action="${addAction}" modelAttribute="employee">
 						<table>
 							<tr>
 								<td><form:label path="eid">

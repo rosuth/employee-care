@@ -13,14 +13,14 @@
 <title>Reject Leave Request</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/admin/adminsidebar.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="topbar-heading">Reject Leave Request</h3>
+			<h3 id="dashboard-heading">Reject Leave Request</h3>
 		<div>
 				<div>
 					<c:url var="addAction" value="/sendLeaveRejectionEmail"></c:url>
-					<form:form action="${addAction}" commandName="employeeLeave">
+					<form:form action="${addAction}" modelAttribute="employeeLeave">
 						<table>
 							<tr>
 								<td>To : <form:input path="email" size="30" />

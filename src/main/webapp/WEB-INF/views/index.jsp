@@ -13,9 +13,9 @@
 		<div id="right-div">
 			<h2 id="login-header">Login to your account</h2>
 			<div id="bottom-div">
-				<button id="adminbutton"><a href="/app/admlogin">Admin Login</a></button>
-				<button id="employeebutton"><a href="/app/emplogin">Employee Login</a></button><br/><br/>
-				<a id="account-create-link" href="/app/createaccount">Create New Account</a>
+				<button id="admin-login-button"><a href="/app/admlogin">Admin Login</a></button>
+				<button id="employee-login-button"><a href="/app/emplogin">Employee Login</a></button><br/><br/>
+				<a id="create-account-link" href="/app/createaccount">Create New Account</a>
 			</div>
 		</div>
 	</div>

@@ -1,8 +1,8 @@
 package com.employeecare.web.dto;
 
 public class EmployeeLeaveRegistrationDto {
-	
-    private String eid;
+
+	private String eid;
 	private String email;
 	private String leave_type;
 	private String fullname;
@@ -12,7 +12,7 @@ public class EmployeeLeaveRegistrationDto {
 	private String reason;
 
 	public EmployeeLeaveRegistrationDto() {
-	
+
 	}
 
 	public EmployeeLeaveRegistrationDto(String eid, String email, String leave_type, String fullname,
@@ -91,5 +91,5 @@ public class EmployeeLeaveRegistrationDto {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	
+
 }

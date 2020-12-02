@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.employeecare.model.Admin;
 import com.employeecare.model.Employee;
@@ -30,7 +29,7 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	@Autowired
 	private AdminRepository adminRepository;
 
@@ -54,7 +53,7 @@ public class EmployeeController {
 			return "exceptions/employeeLoginError";
 		}
 	}
-	
+
 	@RequestMapping(value = "/admdashboard", method = RequestMethod.POST)
 	String login(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
 		try {
@@ -69,7 +68,7 @@ public class EmployeeController {
 			return "exceptions/adminLoginError";
 		}
 	}
-	
+
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
 	public String recoverAccount(Model model, @RequestParam("eid") int eid, @RequestParam("firstname") String firstname, @RequestParam("email") String email, HttpServletRequest request){
 		try {
@@ -92,43 +91,43 @@ public class EmployeeController {
 				accountrecoverymail.setSubject(subject);
 				accountrecoverymail.setText(message);
 				mailSender.send(accountrecoverymail);
-				return "authentication/accountRecoverySuccess";
+				return "authentication/forgotPasswordSuccessful";
 			}
 			else 
-				return "authentication/accountRecoveryFail";
+				return "authentication/forgotPasswordFailed";
 		}
 		catch(ObjectNotFoundException e){
-			return "authentication/accountRecoveryFail";
+			return "authentication/forgotPasswordFailed";
 		}
 	}
 
-	@RequestMapping(value = "/viewemployees", method = RequestMethod.GET)
+	@RequestMapping("/admdashboard/employees")
 	public String viewEmployees(Model model) {
 		model.addAttribute("employee", new Employee());
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/viewEmployees";
+		return "admin/employee/employeeList";
 	}
 
-	@RequestMapping(value = "/viewemployeeleaves", method = RequestMethod.GET)
+	@RequestMapping("/admdashboard/employeeleaves")
 	public String viewEmployeeLeaves(Model model) {
 		model.addAttribute("employeeLeave", new EmployeeLeave());
 		model.addAttribute("listEmployeesLeaves", this.employeeLeaveRepository.findAll());
-		return "admin/leave/viewEmployeeLeaves";
+		return "admin/leave/employeeLeaveList";
 	}
 
-	@RequestMapping("/registeremployee")
-	public String employeeForm(@ModelAttribute("employee") Employee emp)
+	@RequestMapping("/admdashboard/employee/add")
+	public String employeeRegistrationForm(@ModelAttribute("employee") Employee emp)
 	{
-		return "admin/employee/employeeRegisterForm";
+		return "admin/employee/employeeRegistrationForm";
 	}
 
-	@RequestMapping(value="/employeeLeaveForm",method=RequestMethod.GET)
+	@RequestMapping("/admdashboard/employeeleave/add")
 	public String employeeLeaveForm(@ModelAttribute("employeeLeave") EmployeeLeave el)
 	{
-		return "employeeLeaveForm";
+		return "employee/leave/employeeLeaveForm";
 	}
 
-	@RequestMapping(value= "/employee/add", method = RequestMethod.POST)
+	@RequestMapping(value= "/admdashboard/employee/add", method = RequestMethod.POST)
 	public String addEmployee(@ModelAttribute("employee") Employee emp){
 		String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
 		if(emp.getPassword()==null) {
@@ -148,52 +147,52 @@ public class EmployeeController {
 		welcomeemail.setSubject(subject);
 		welcomeemail.setText(message);
 		mailSender.send(welcomeemail);
-		return "redirect:/admdashboard";
+		return "redirect:/app/admdashboard";
 	}
-	
+
 	@RequestMapping(value= "leaveApplied", method = RequestMethod.POST)
 	public String leaveApplied(@ModelAttribute("employeeLeave") EmployeeLeave el){
 		this.employeeLeaveRepository.save(el);
-		return "employee_homepage";
+		return "redirect:/admdashboard/";
 	}
 
-	@RequestMapping(value= "/employee/update", method = RequestMethod.POST)
+	@RequestMapping(value= "/admdashboard/employee/update", method = RequestMethod.POST)
 	public String employeeEdited(@ModelAttribute("employee") Employee emp){
 		if(emp.getEid() != 0){
 			this.employeeRepository.save(emp);
 		}
-		return "redirect:/admdashboard";
+		return "redirect:/admdashboard/employees";
 	}
 
-	@RequestMapping("/deleteemployee/{eid}")
+	@RequestMapping("/admdashboard/employee/delete/{eid}")
 	public String removeEmployee(@PathVariable("eid") long eid){
 		this.employeeRepository.deleteById(eid);
-		return "redirect:/admdashboard";
+		return "redirect:/admdashboard/employees";
 	}
 
-	@RequestMapping(value="/editemployee/{eid}", method=RequestMethod.GET)
+	@RequestMapping("/admdashboard/employee/edit/{eid}")
 	public String editEmployee(@PathVariable("eid") int eid, Model model){
 		model.addAttribute("employee", this.employeeRepository.findById(eid));
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/updateEmployee";
+		return "admin/employee/employeeUpdateForm";
 	}
-	
-	@RequestMapping(value="/emailemployee/{eid}", method=RequestMethod.GET)
+
+	@RequestMapping("/admdashboard/employee/email/{eid}")
 	public String sendEmailToEmployee(@PathVariable("eid") int eid, Model model){
 		model.addAttribute("employee", this.employeeRepository.findById(eid));
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/sendMailToEmployee";
+		return "admin/employee/employeeEmailForm";
 	}
-	
-	@RequestMapping("/approveleave/{lid}")
+
+	@RequestMapping("/admdashboard/approveleave/{lid}")
 	public String leaveApproval(@PathVariable("lid") long lid, Model model){
 		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
 		this.employeeLeaveRepository.deleteById(lid);
 		return "admin/leave/leaveApprovalMessageForm";
 	}
-	
-	@RequestMapping("/rejectleave/{lid}")
+
+	@RequestMapping("/admdashboard/rejectleave/{lid}")
 	public String leaveReject(@PathVariable("lid") long lid, Model model){
 		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
@@ -201,12 +200,12 @@ public class EmployeeController {
 		return "admin/leave/leaveRejectionMessageForm";
 	}
 
-	@RequestMapping("/findemployee")
-	public String findEmployee(){
-		return "admin/employee/findEmployeeForm";
+	@RequestMapping("/admdashboard/employee/findemployee")
+	public String employeeSearchForm(){
+		return "admin/employee/employeeSearchForm";
 	}
-	
-	@RequestMapping(value="/getemployee",method=RequestMethod.POST)
+
+	@RequestMapping(value="/admdashboard/getemployee",method=RequestMethod.POST)
 	public String findEmployeeById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
 		try {
 			model.addAttribute("employee", this.employeeRepository.findById(eid));
@@ -217,7 +216,7 @@ public class EmployeeController {
 		}
 	}
 
-	@RequestMapping(value="/sendIndividualEmailToEmployee",method=RequestMethod.POST)
+	@RequestMapping(value="/admdashboard/employee/email",method=RequestMethod.POST)
 	public String sendEmail(HttpServletRequest request) {
 		String recipientAddress = request.getParameter("email");
 		String subject = request.getParameter("subject");
@@ -229,7 +228,7 @@ public class EmployeeController {
 		mailSender.send(email);
 		return "redirect:/admdashboard";
 	}
-	
+
 	@RequestMapping(value="/sendRejectEmail",method=RequestMethod.POST)
 	public String rejectionMail(HttpServletRequest request) {
 		String recipientAddress = request.getParameter("email");
@@ -242,7 +241,7 @@ public class EmployeeController {
 		mailSender.send(email);
 		return "redirect:/admdashboard";
 	}
-	
+
 	@RequestMapping(value="/sendApproveEmail",method=RequestMethod.POST)
 	public String approvalEmail(HttpServletRequest request) {
 		String recipientAddress = request.getParameter("email");

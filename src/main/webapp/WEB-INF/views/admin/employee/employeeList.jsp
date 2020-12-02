@@ -23,13 +23,13 @@
 </script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/admin/adminsidebar.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="topbar-heading">Employees Details</h3>
+			<h3 id="dashboard-heading">Employees Details</h3>
 		<div>
 			<div style="float:left;">
-				<a href="registeremployee"><button id="register-new-emp">Register New Employee</button></a>
+				<a href="/app/admdashboard/employee/add"><button id="register-new-emp">Register New Employee</button></a>
 			</div>
 		</div>
 		<div>
@@ -58,9 +58,9 @@
 						<td>${employee.gender}</td>
 						<td>${employee.address}</td>
 						<td>${employee.city}</td>
-						<td><a id="edit" href="<c:url value='/editemployee/${employee.eid}' />"><i class="fa fa-edit" style="font-size:22px;"></i></a></td>
-						<td><a id="remove" onclick="return employeeDeletionConfirmation()" href="<c:url value='/deleteemployee/${employee.eid}' />"><i class="fa fa-trash" style="font-size:22px;"></i></a></td>
-						<td><a id="mail" href="<c:url value='/emailemployee/${employee.eid}' />"><i class="fa fa-envelope" style="font-size:22px;"></i></a></td>
+						<td><a id="edit" href="<c:url value='/admdashboard/employee/edit/${employee.eid}' />"><i class="fa fa-edit" style="font-size:22px;"></i></a></td>
+						<td><a id="remove" onclick="return employeeDeletionConfirmation()" href="<c:url value='/admdashboard/employee/delete/${employee.eid}' />"><i class="fa fa-trash" style="font-size:22px;"></i></a></td>
+						<td><a id="mail" href="<c:url value='/admdashboard/employee/email/${employee.eid}' />"><i class="fa fa-envelope" style="font-size:22px;"></i></a></td>
 					</tr>
 					</c:forEach>
 				</table>

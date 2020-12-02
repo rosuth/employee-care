@@ -6,9 +6,9 @@ public class AdminRegistrationDto {
 	private String lastname;
 	private String email;
 	private String password;
-	
+
 	public AdminRegistrationDto(){
-		
+
 	}
 
 	public AdminRegistrationDto(String firstname, String lastname, String email, String password) {
@@ -50,5 +50,5 @@ public class AdminRegistrationDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 }

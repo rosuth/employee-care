@@ -10,7 +10,7 @@ public class EmployeeRegistrationDto {
 	private String gender;
 	private String address;
 	private String city;
-	
+
 	public EmployeeRegistrationDto() {
 
 	}

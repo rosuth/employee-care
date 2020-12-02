@@ -1,7 +1,6 @@
 package com.employeecare.model;
 
 import java.util.Collection;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,10 +21,10 @@ public class Employee {
 	@Column(name="EID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long eid;
-	
+
 	@Column(name="PASSWORD")
 	private String password;
-	
+
 	@Column(name="FIRSTNAME")
 	private String firstname;
 
@@ -34,7 +33,7 @@ public class Employee {
 
 	@Column(name="EMAIL")
 	private String email;
-	
+
 	@Column(name="DOB")
 	private String dob;
 
@@ -46,19 +45,19 @@ public class Employee {
 
 	@Column(name="CITY")
 	private String city;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "ROLES",
 			joinColumns = @JoinColumn(
-		            name = "EMP_ID", referencedColumnName = "EID"),
+					name = "EMP_ID", referencedColumnName = "EID"),
 			inverseJoinColumns = @JoinColumn(
-				            name = "ROLE_ID", referencedColumnName = "ID"))
-	
+					name = "ROLE_ID", referencedColumnName = "ID"))
+
 	private Collection<Role> roles;
-	
+
 	public Employee() {
-		
+
 	}
 
 	public Employee(String password, String firstname, String lastname, String email, String dob,
@@ -145,7 +144,7 @@ public class Employee {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	
+
 	public Collection<Role> getRoles() {
 		return roles;
 	}

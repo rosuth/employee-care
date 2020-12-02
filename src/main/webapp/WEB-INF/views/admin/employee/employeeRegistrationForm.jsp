@@ -14,15 +14,15 @@
 <title>Register New Employee</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/common/admin/adminsidebar.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="topbar-heading">Register New Employee</h3>
+			<h3 id="dashboard-heading">Register New Employee</h3>
 		<div>	
 			<div>
 				<div style="float: left;">
-					<c:url var="addAction" value="/employee/add"></c:url>
-					<form:form action="${addAction}" commandName="employee">
+					<c:url var="addAction" value="/admdashboard/employee/add"></c:url>
+					<form:form action="${addAction}" modelAttribute="employee">
 						<table>
 							<tr>
 								<td><form:label path="firstname">

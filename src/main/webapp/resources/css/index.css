@@ -1,4 +1,4 @@
-#adminbutton, #employeebutton {
+#admin-login-button, #employee-login-button {
 	border: 3px solid #2381de;
 	background: #2381de;
 	font-size: 16px;
@@ -12,7 +12,7 @@ a {
 	text-decoration: none;
 }
 
-#account-create-link{
+#create-account-link{
 	font-family: 'Roboto Slab', serif;
 	font-size: 16px;
 	width: 70%;
@@ -80,7 +80,7 @@ form {
 	text-align: center;
 }
 
-#id-label, #password-label, #aid-label {
+#email-label, #password-label, #aemail-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -104,27 +104,7 @@ form {
 	font-size: 16px;
 }
 
-#admin-login-button {
-font-family: 'Roboto Slab', serif;
-background-color: white;
-color: #2381de;
-border: 2px solid #2381de;
-height: 34px;
-font-size: 16px;
-margin-top: 20px;
-}
-
-#admin-login-button:hover {
-font-family: 'Roboto Slab', serif;
-background-color: #2381de;
-color: white;
-border: 2px solid #2381de;
-height: 34px;
-font-size: 16px;
-margin-top: 20px;
-}
-
-#login-as-employee-button{
+#employee-login-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -132,7 +112,7 @@ margin-top: 20px;
 	color:black;
 }
 
-#login-trouble{
+#forgot-password-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
@@ -140,11 +120,11 @@ margin-top: 20px;
 	color:black;
 }
 
-#login-trouble-header{
+#forgot-password-link-header{
 	text-align:center;
 }
 
-#login-as-employee-button-header{
+#login-page-bottom-links{
 	text-align:center;
 }
 

@@ -1,6 +1,6 @@
 version: '3'
 services:
-    springboot:
+    employeecare:
         container_name: employeecare
         image: 100598/employeecare:1.0
         ports: 

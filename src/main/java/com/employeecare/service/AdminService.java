@@ -6,5 +6,7 @@ import com.employeecare.model.Admin;
 import com.employeecare.web.dto.AdminRegistrationDto;
 
 public interface AdminService extends UserDetailsService{
+	
 	Admin save(AdminRegistrationDto registrationDto);
+
 }

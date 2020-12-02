@@ -10,24 +10,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ROLES")
 public class Role {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
 	private Long id;
-	
+
 	@Column(name="ROLE_NAME")
 	private String name;
-	
+
 	public Role() {
-		
+
 	}
-	
+
 	public Role(String name) {
 		super();
 		this.name = name;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

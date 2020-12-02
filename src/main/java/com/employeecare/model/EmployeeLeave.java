@@ -15,35 +15,35 @@ public class EmployeeLeave {
 	@Column(name="LID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long lid;
-	
+
 	@Column(name="EID")
-    private String eid;
+	private String eid;
 
 	@Column(name="EMAIL")
 	private String email;
 
 	@Column(name="LEAVE_TYPE")
 	private String leave_type;
-	
+
 	@Column(name="FULLNAME")
 	private String fullname;
-	
+
 	@Column(name="LEAVE_START")
 	private String leave_start;
-	
+
 	@Column(name="LEAVE_END")
 	private String leave_end;
-	
+
 	@Column(name="DAYS")
 	private String days;
-	
+
 	@Column(name="REASON")
 	private String reason;
-	
+
 	public EmployeeLeave() {
-		
+
 	}
-	
+
 	public EmployeeLeave(String eid, String email, String leave_type, String fullname, String leave_start,
 			String leave_end, String days, String reason) {
 		this.eid = eid;

@@ -1,8 +1,6 @@
 package com.employeecare.model;
 
 import java.util.Collection;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +21,7 @@ public class Admin {
 	@Column(name="AID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long aid;
-	
+
 	@Column(name="FIRSTNAME")
 	private String firstname;
 
@@ -35,17 +33,17 @@ public class Admin {
 
 	@Column(name="PASSWORD")
 	private String password;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "ROLES",
 			joinColumns = @JoinColumn(
-		            name = "ADMIN_ID", referencedColumnName = "AID"),
+					name = "ADMIN_ID", referencedColumnName = "AID"),
 			inverseJoinColumns = @JoinColumn(
-				            name = "ROLE_ID", referencedColumnName = "ID"))
-	
+					name = "ROLE_ID", referencedColumnName = "ID"))
+
 	private Collection<Role> roles;
-	
+
 	public Admin() {
 
 	}
@@ -97,7 +95,7 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Collection<Role> getRoles() {
 		return roles;
 	}

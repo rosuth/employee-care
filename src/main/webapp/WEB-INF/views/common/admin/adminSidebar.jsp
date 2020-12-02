@@ -4,8 +4,8 @@
 	</h4>
 	<hr id="hor-rule">
 	<a href="/app/admdashboard" class="w3-bar-item w3-button">Dashboard</a> 
-	<a href="/app/admdashboard/viewemployees" class="w3-bar-item w3-button">Employees Details</a> 
-	<a href="/app/admdashboard/viewemployeeleaves" class="w3-bar-item w3-button">Manage Leave Requests</a> 
+	<a href="/app/admdashboard/employees" class="w3-bar-item w3-button">Employees Details</a> 
+	<a href="/app/admdashboard/employeeleaves" class="w3-bar-item w3-button">Manage Leave Requests</a> 
 	<a href="/app/admdashboard/findemployee" class="w3-bar-item w3-button">Find Employee</a> 
 	<a href="/app/admdashboard/timetracking" class="w3-bar-item w3-button">Time Tracking</a> 
 	<a href="/app/admdashboard/attendance" class="w3-bar-item w3-button">Employees Attendance</a> 
