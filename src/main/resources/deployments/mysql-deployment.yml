@@ -60,22 +60,22 @@ spec:
         - name: MYSQL_ROOT_PASSWORD # Setting Root Password of mysql From a 'Secret'
           valueFrom:
             secretKeyRef:
-              name: mysql-root-credentials # Name of the 'Secret'
+              name: database-root-user # Name of the 'Secret'
               key: password   # 'key' inside the Secret which contains required 'value'
         - name: MYSQL_USER # Setting USER username on mysql From a 'Secret'
           valueFrom:
             secretKeyRef:
-              name: mysql-user-credentials
+              name: database-user
               key: username
         - name: MYSQL_PASSWORD # Setting USER Password on mysql From a 'Secret'
           valueFrom:
             secretKeyRef:
-              name: mysql-user-credentials
+              name: database-user
               key: password
         - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
           valueFrom:
             configMapKeyRef:
-              name: mysql-configuration
+              name: database-configuration
               key: name
         ports:
         - containerPort: 3306

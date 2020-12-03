@@ -4,7 +4,7 @@
 <script>
 	function employeeProfileNotFoundAlert() {
 		alert("No Employee Found");
-		window.location.replace("/app/admdashboard");
+		window.location.replace("/app/admdashboard/findemployee");
 	}
 </script>
 </head>

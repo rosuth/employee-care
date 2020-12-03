@@ -46,11 +46,11 @@ font-family: 'Roboto Slab', serif;
     margin-right: 8px;
 }
 #hor-rule{
-border: .5px solid white;
-width:60%;
-margin: auto;
-margin-top:10px;
-margin-bottom:10px;
+    border: .5px solid #747272;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #app-name {
     font-family: 'DM Serif Display', serif;

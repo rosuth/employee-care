@@ -23,16 +23,16 @@
 		<c:if test="${!empty listEmployeesLeaves}">
 	<table width="100%" class="table table-sm" style="margin-top:30px;">
 	<tr>
-		<th width="60">Leave ID</th>
+		<th width="60">LID</th>
 		<th width="60">EID</th>
- 		<th width="90">Leave Type</th>
-		<th width="90">Full Name</th>
-		<th width="90">Leave Start</th>
-		<th width="90">Leave End</th>
-		<th width="40">Days</th>
-		<th width="200">Reason</th>
-      	<th width="50">Approve</th>
-        <th width="50">Reject</th>
+ 		<th width="90">LEAVE TYPE</th>
+		<th width="90">FULLNAME</th>
+		<th width="90">LEAVE START</th>
+		<th width="90">LEAVE END</th>
+		<th width="40">DAYS</th>
+		<th width="200">REASON</th>
+      	<th width="50">APPROVE</th>
+        <th width="50">REJECT</th>
 	</tr>
 	<c:forEach items="${listEmployeesLeaves}" var="employeeLeave">
 	<tr>
@@ -44,8 +44,8 @@
 		<td>${employeeLeave.leave_end}</td>
 		<td>${employeeLeave.days}</td>
 		<td>${employeeLeave.reason}</td>
-	    <td><a href="<c:url value='/approveleave/${employeeLeave.lid}' />" ><span style='font-size:20px; color:green;'>&#10004;</span></a></td>
-	    <td><a href="<c:url value='/rejectleave/${employeeLeave.lid}' />" ><span style='font-size:20px; color:red;'>&#10008;</span></a></td>
+	    <td><a href="<c:url value='/admdashboard/employeeleave/approve/${employeeLeave.lid}' />" ><i class="fa fa-check" style="font-size:22px;"></i></a></td>
+	    <td><a href="<c:url value='/admdashboard/employeeleave/reject/${employeeLeave.lid}' />" ><i class="fa fa-close" style="font-size:22px;"></i></a></td>
 	</tr>
 	</c:forEach>
 	</table>

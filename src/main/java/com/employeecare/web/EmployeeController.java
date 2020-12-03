@@ -147,7 +147,7 @@ public class EmployeeController {
 		welcomeemail.setSubject(subject);
 		welcomeemail.setText(message);
 		mailSender.send(welcomeemail);
-		return "redirect:/app/admdashboard";
+		return "redirect:/admdashboard";
 	}
 
 	@RequestMapping(value= "leaveApplied", method = RequestMethod.POST)
@@ -184,34 +184,55 @@ public class EmployeeController {
 		return "admin/employee/employeeEmailForm";
 	}
 
-	@RequestMapping("/admdashboard/approveleave/{lid}")
-	public String leaveApproval(@PathVariable("lid") long lid, Model model){
+	@RequestMapping("/admdashboard/employeeleave/approve/{lid}")
+	public String sendLeaveApprovalMail(@PathVariable("lid") long lid, Model model){
 		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
 		this.employeeLeaveRepository.deleteById(lid);
-		return "admin/leave/leaveApprovalMessageForm";
+		return "admin/leave/approvalForm";
 	}
 
-	@RequestMapping("/admdashboard/rejectleave/{lid}")
-	public String leaveReject(@PathVariable("lid") long lid, Model model){
+	@RequestMapping("/admdashboard/employeeleave/reject/{lid}")
+	public String sendLeaveRejectionMail(@PathVariable("lid") long lid, Model model){
 		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
 		this.employeeLeaveRepository.deleteById(lid);
-		return "admin/leave/leaveRejectionMessageForm";
+		return "admin/leave/rejectionForm";
 	}
 
-	@RequestMapping("/admdashboard/employee/findemployee")
+	@RequestMapping("/admdashboard/findemployee")
 	public String employeeSearchForm(){
 		return "admin/employee/employeeSearchForm";
 	}
 
-	@RequestMapping(value="/admdashboard/getemployee",method=RequestMethod.POST)
+	@RequestMapping("/admdashboard/timetracking")
+	public String employeeTimeTracking(){
+		return "admin/employee/employeeTimeTracking";
+	}
+
+	@RequestMapping("/admdashboard/attendance")
+	public String employeeAttendance(){
+		return "admin/employee/employeeAttendance";
+	}
+
+	@RequestMapping("/admdashboard/requests")
+	public String employeeRequests(){
+		return "admin/employee/employeeRequests";
+	}
+	
+	@RequestMapping("/admdashboard/documents")
+	public String employeeDocuments(){
+		return "admin/employee/employeeDocuments";
+	}
+
+	@RequestMapping(value="/admdashboard/findemployee",method=RequestMethod.POST)
 	public String findEmployeeById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
-		try {
+		Employee emp = employeeRepository.findById(eid);
+		if(emp!=null) {
 			model.addAttribute("employee", this.employeeRepository.findById(eid));
-			return "admin/employee/viewEmployeeProfile";
+			return "admin/employee/employeeProfile";
 		}
-		catch(ObjectNotFoundException o){
+		else {
 			return "exceptions/employeeProfileNotFound";
 		}
 	}
@@ -229,7 +250,7 @@ public class EmployeeController {
 		return "redirect:/admdashboard";
 	}
 
-	@RequestMapping(value="/sendRejectEmail",method=RequestMethod.POST)
+	@RequestMapping(value="/admindashboard/employeeleave/rejected",method=RequestMethod.POST)
 	public String rejectionMail(HttpServletRequest request) {
 		String recipientAddress = request.getParameter("email");
 		String subject = request.getParameter("subject");
@@ -239,10 +260,10 @@ public class EmployeeController {
 		email.setSubject(subject);
 		email.setText(message);
 		mailSender.send(email);
-		return "redirect:/admdashboard";
+		return "redirect:/admdashboard/employeeleaves";
 	}
 
-	@RequestMapping(value="/sendApproveEmail",method=RequestMethod.POST)
+	@RequestMapping(value="/admindashboard/employeeleave/approved",method=RequestMethod.POST)
 	public String approvalEmail(HttpServletRequest request) {
 		String recipientAddress = request.getParameter("email");
 		String subject = request.getParameter("subject");
@@ -252,6 +273,6 @@ public class EmployeeController {
 		email.setSubject(subject);
 		email.setText(message);
 		mailSender.send(email);
-		return "redirect:/admdashboard";
+		return "redirect:/admdashboard/employeeleaves";
 	}
 }

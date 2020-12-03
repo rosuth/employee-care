@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class NavigationController {
 
 	@RequestMapping("/emplogin")
-	public String home() {
-		return "authentication/employeelogin";
+	public String employeelogin() {
+		return "authentication/employeeLogin";
 	}
 
 	@RequestMapping("/admlogin")

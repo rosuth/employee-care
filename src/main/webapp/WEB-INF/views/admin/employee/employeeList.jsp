@@ -26,7 +26,7 @@
 	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="dashboard-heading">Employees Details</h3>
+			<h3 id="dashboard-heading">Employee Details</h3>
 		<div>
 			<div style="float:left;">
 				<a href="/app/admdashboard/employee/add"><button id="register-new-emp">Register New Employee</button></a>

@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: employeecare
+  name: employeecare-app
   labels:
-    name: employeecare
+    name: employeecare-app
 spec:
   ports:
     - nodePort: 30164 
@@ -11,26 +11,26 @@ spec:
       targetPort: 8080  
       protocol: TCP
   selector:           
-    app: employeecare
+    app: employeecare-app
   type: LoadBalancer       
 
 ---
 apiVersion: apps/v1 
 kind: Deployment    
 metadata:              
-  name: employeecare
+  name: employeecare-app
 spec:                
   selector:         
     matchLabels:
-      app: employeecare
+      app: employeecare-app
   replicas: 1     
   template:
     metadata:
       labels:        
-        app: employeecare
+        app: employeecare-app
     spec:
       containers:
-        - name: employeecare
+        - name: employeecare-app
           image: 100598/employeecare:1.0
           ports:
             - containerPort: 8080                
@@ -38,20 +38,20 @@ spec:
           - name: DB_HOST   # Setting Database host address from configMap
             valueFrom: 
               configMapKeyRef:
-                name: mysql-configuration  # name of configMap
+                name: database-configuration  # name of configMap
                 key: host
           - name: DB_NAME  # Setting Database name from configMap
             valueFrom:
               configMapKeyRef:
-                name: mysql-configuration 
+                name: database-configuration 
                 key: name
           - name: DB_USERNAME  # Setting Database username from Secret
             valueFrom:
               secretKeyRef:
-                name: mysql-user-credentials # Secret Name
+                name: database-user # Secret Name
                 key: username
           - name: DB_PASSWORD # Setting Database password from Secret
             valueFrom:
               secretKeyRef:
-                name: mysql-user-credentials
+                name: database-user
                 key: password     

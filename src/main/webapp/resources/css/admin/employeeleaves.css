@@ -1,0 +1,17 @@
+#dashboard-heading {
+	font-family: 'Roboto Slab', serif;
+	font-size: 23px;
+}
+
+#register-new-emp{
+    font-size: 17px;
+    margin-top: 15px;
+    background-color: white;
+    border: 2px solid black;
+	font-family: 'Roboto Slab', serif;
+}
+
+th,td{
+	font-family: 'Roboto Slab', serif;
+	font-size: 15px;
+}

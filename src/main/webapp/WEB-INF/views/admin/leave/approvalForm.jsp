@@ -10,16 +10,16 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/admin-sidebar.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/base.css">
-<title>Reject Leave Request</title>
+<title>Leave Approval Form</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="dashboard-heading">Reject Leave Request</h3>
+			<h3 id="dashboard-heading">Leave Approval Form</h3>
 		<div>
 				<div>
-					<c:url var="addAction" value="/sendLeaveRejectionEmail"></c:url>
+					<c:url var="addAction" value="/admindashboard/employeeleave/approved"></c:url>
 					<form:form action="${addAction}" modelAttribute="employeeLeave">
 						<table>
 							<tr>
@@ -28,17 +28,17 @@
 							</tr>
 							<tr>
 								<td><input type="text" name="subject" size="65"
-									value="Rejected"
+									value="Congrats ! Your leave has been approved."
 									required="true" /></td>
 							</tr>
 							<tr>
 								<td><textarea cols="50" rows="5" name="message"
-										required="true">As per your request, your leave application for the mentioned period has been rejected by us.</textarea></td>
+										required="true">As per your request, your leave application for the mentioned period has been approved by us.</textarea></td>
 							</tr>
 
 							<tr>
 								<td colspan="2"><input id="new" type="submit"
-									value="<spring:message text="Reject Leave"/>" /></td>
+									value="<spring:message text="Approve Leave"/>" /></td>
 							</tr>
 						</table>
 					</form:form>
