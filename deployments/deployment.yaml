@@ -34,23 +34,23 @@ spec:
           image: 100598/employeecare:1.0
           ports:
             - containerPort: 8080                
-          env:   # Setting Enviornmental Variables
-          - name: DB_HOST   # Setting Database host address from configMap
+          env:   
+          - name: DB_HOST   
             valueFrom: 
               configMapKeyRef:
-                name: database-configuration  # name of configMap
+                name: database-configuration 
                 key: host
-          - name: DB_NAME  # Setting Database name from configMap
+          - name: DB_NAME  
             valueFrom:
               configMapKeyRef:
                 name: database-configuration 
                 key: name
-          - name: DB_USERNAME  # Setting Database username from Secret
+          - name: DB_USERNAME  
             valueFrom:
               secretKeyRef:
-                name: database-user # Secret Name
+                name: database-user
                 key: username
-          - name: DB_PASSWORD # Setting Database password from Secret
+          - name: DB_PASSWORD 
             valueFrom:
               secretKeyRef:
                 name: database-user

@@ -10,8 +10,8 @@ services:
         image: mysql:5.7
         environment:
         - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=root
+        - MYSQL_USER=jeff
+        - MYSQL_PASSWORD=1234
         - MYSQL_DATABASE=EMPLOYEECARE
         volumes:
         - appvolume:/var/lib/mysql
