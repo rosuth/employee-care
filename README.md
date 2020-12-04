@@ -25,25 +25,43 @@ contact to system admins.
 ## RESTful APIs
 
 GET: http://localhost:8080/app/apis/admin
+
 GET: http://localhost:8080/app/apis/admin/1
+
 POST: http://localhost:8080/app/apis/admin
+
 PUT: http://localhost:8080/app/apis/admin/1
+
 DELETE: http://localhost:8080/app/apis/admin
+
 DELETE: http://localhost:8080/app/apis/admin/1
 
+
 GET: http://localhost:8080/app/apis/employee
+
 GET: http://localhost:8080/app/apis/employee/1
+
 POST: http://localhost:8080/app/apis/employee
+
 PUT: http://localhost:8080/app/apis/employee/1
+
 DELETE: http://localhost:8080/app/apis/employee
+
 DELETE: http://localhost:8080/app/apis/employee/1
 
+
 GET: http://localhost:8080/app/apis/employeeleave
+
 GET: http://localhost:8080/app/apis/employeeleave/1
+
 POST: http://localhost:8080/app/apis/employeeleave
+
 PUT: http://localhost:8080/app/apis/employeeleave/1
+
 DELETE: http://localhost:8080/app/apis/employeeleave
+
 DELETE: http://localhost:8080/app/apis/employeeleave/1
+
 
 ## Technologies Involved
 
@@ -97,4 +115,5 @@ To deploy this project using Kubernetes (Minikube)
 9. Hit employeecare.com:{PORT}/app in browser
 
 This project is contributed by Rohit Suthar
+
 rohitkumar1121.rk@gmail.com
