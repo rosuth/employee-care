@@ -30,7 +30,7 @@
 					</tr>
 				</table>
 			</form>
-			<h4 id="login-page-bottom-links"><a id="employee-login-link" href="/app/emplogin">Employee Login </a><a id="forgot-password-link" href="/app/forgotpassword"> Forgot Password</a></h4>
+			<h4 id="login-page-bottom-links"><a id="employee-login-link" href="/app/emplogin">Employee Login </a></h4>
 		</div>
 	</div>
 </body>

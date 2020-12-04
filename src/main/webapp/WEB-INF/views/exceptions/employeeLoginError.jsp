@@ -3,7 +3,7 @@
 <title>Employee Login Error</title>
 <script>
 	function employeeNotFoundAlert() {
-		alert("Employee not exist");
+		alert("Login Failed");
 		window.location.replace("/app/emplogin");
 	}
 </script>

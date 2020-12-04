@@ -17,12 +17,9 @@ function employeeUpdateConfirmation()
 {
   alert("Make sure you have entered correct details");
 }
-function BadRequestAlert(){
-	  alert("Don't click on any button/link except update button");
-}
 </script>
 </head>
-<body onload="BadRequestAlert()">
+<body>
 	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
@@ -87,7 +84,6 @@ function BadRequestAlert(){
 									</form:label></td>
 								<td><form:input path="city" required="true" /></td>
 							</tr>
-							<br/>
 							<tr>
 								<td colspan="2"><input id="update-button" type="submit"
 									value="<spring:message text="Update"/>" /> 

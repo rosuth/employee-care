@@ -38,241 +38,80 @@ public class EmployeeController {
 
 	@Autowired
 	private JavaMailSender mailSender;
+	
+	@RequestMapping("/emplogin")
+	public String employeelogin() {
+		return "authentication/employeeLogin";
+	}
+	@RequestMapping(value = "/empdashboard", method=RequestMethod.GET)
+	public String employeeHomepage() {
+		return "employee/employeeHomepage";
+	}
+	@RequestMapping("/empdashboard/myprofile")
+	public String employeeProfileSearchForm(){
+		return "employee/employeeSearchForm";
+	}
+	@RequestMapping("/empdashboard/request")
+	public String employeeRequest(){
+		return "employee/employeeRequest";
+	}
+	@RequestMapping("/empdashboard/raiseissue")
+	public String employeeRaiseIssue(){
+		return "employee/employeeRaiseIssue";
+	}
+	@RequestMapping("/empdashboard/attendance")
+	public String employeeAttendance(){
+		return "employee/employeeAttendance";
+	}
+	@RequestMapping("/empdashboard/document")
+	public String employeeDocuments(){
+		return "employee/employeeDocuments";
+	}
+	@RequestMapping("/empdashboard/leaveapplication")
+	public String leaveApplication(){
+		return "employee/leave/leaveApplication";
+	}
+	@RequestMapping(value = "/empdashboard/logout", method = RequestMethod.GET)
+	public String employeeLogout() {
+		return "redirect:/";
+	}
 
 	@RequestMapping(value = "/empdashboard", method=RequestMethod.POST)
 	public String employeeLogin(@RequestParam("email") String email, @RequestParam("password") String password, Model model) throws ObjectNotFoundException{
 		try {
 			Employee emp = employeeRepository.findByEmail(email);
 			model.addAttribute("employee", emp);
-			if(email.equals(emp.getEmail()) && password.equals(emp.getPassword())) 
-				return "employee/employeeHomepage";
-			else 
+			if(emp!=null) {
+				if(email.equals(emp.getEmail()) && password.equals(emp.getPassword())) 
+					return "employee/employeeHomepage";
+				else 
+					return "exceptions/employeeLoginError";
+			}
+			else {
 				return "exceptions/employeeLoginError";
+
+			}
 		}
 		catch(ObjectNotFoundException e){
 			return "exceptions/employeeLoginError";
 		}
 	}
 
-	@RequestMapping(value = "/admdashboard", method = RequestMethod.POST)
-	String login(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
-		try {
-			Admin admin = adminRepository.findByEmail(email);
-			model.addAttribute("admin", admin);
-			if(email.equals(admin.getEmail()) && password.equals(admin.getPassword())) 
-				return "admin/adminHomepage";
-			else 
-				return "exceptions/adminLoginError";
-		}
-		catch(ObjectNotFoundException e){
-			return "exceptions/adminLoginError";
-		}
-	}
-
-	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
-	public String recoverAccount(Model model, @RequestParam("eid") int eid, @RequestParam("firstname") String firstname, @RequestParam("email") String email, HttpServletRequest request){
-		try {
-			Employee emp = employeeRepository.findByEmail(email);
-			model.addAttribute("employee", emp);
-			if(eid==emp.getEid() && firstname.equals(emp.getFirstname()) && email.equals(emp.getEmail())) {
-				String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
-				emp.setPassword(temp);
-				String subject = "Employee Care Account Recovery Process";
-				String message = "We have received the account recovery request on your Employee Care Account, kindly follow the steps below to complete the process and enjoy the benefits of Employee Care Account.\nIn case if you have not made any request for the same then do not share the information provided in this email to anyone.\n\n"
-						+ "Your Employee Care Account Information:\n\n"
-						+ "Employee ID: "+emp.getEid()+"\n"
-						+ "Name: "+emp.getFirstname()+" "+emp.getLastname()+"\n"
-						+ "Email: "+emp.getEmail()+"\n"
-						+ "New Password: "+temp+"\n\n"
-						+ "Use the above EID and Password when trying to login into your account.\n\n"
-						+ "Thanks for using Employee Care.";
-				SimpleMailMessage accountrecoverymail = new SimpleMailMessage();
-				accountrecoverymail.setTo(email);
-				accountrecoverymail.setSubject(subject);
-				accountrecoverymail.setText(message);
-				mailSender.send(accountrecoverymail);
-				return "authentication/forgotPasswordSuccessful";
-			}
-			else 
-				return "authentication/forgotPasswordFailed";
-		}
-		catch(ObjectNotFoundException e){
-			return "authentication/forgotPasswordFailed";
-		}
-	}
-
-	@RequestMapping("/admdashboard/employees")
-	public String viewEmployees(Model model) {
-		model.addAttribute("employee", new Employee());
-		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/employeeList";
-	}
-
-	@RequestMapping("/admdashboard/employeeleaves")
-	public String viewEmployeeLeaves(Model model) {
-		model.addAttribute("employeeLeave", new EmployeeLeave());
-		model.addAttribute("listEmployeesLeaves", this.employeeLeaveRepository.findAll());
-		return "admin/leave/employeeLeaveList";
-	}
-
-	@RequestMapping("/admdashboard/employee/add")
-	public String employeeRegistrationForm(@ModelAttribute("employee") Employee emp)
-	{
-		return "admin/employee/employeeRegistrationForm";
-	}
-
-	@RequestMapping("/admdashboard/employeeleave/add")
-	public String employeeLeaveForm(@ModelAttribute("employeeLeave") EmployeeLeave el)
-	{
-		return "employee/leave/employeeLeaveForm";
-	}
-
-	@RequestMapping(value= "/admdashboard/employee/add", method = RequestMethod.POST)
-	public String addEmployee(@ModelAttribute("employee") Employee emp){
-		String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
-		if(emp.getPassword()==null) {
-			emp.setPassword(temp);
-		}
-		this.employeeRepository.save(emp);
-		String recipientAddress = emp.getEmail();
-		String subject = "Welcome "+emp.getFirstname()+" to Employee Care";
-		String message = "Employee Care Welcomes You!\n\nYour Employee Account has been created successfully by your System Admin.\nEnjoy the unlimited benefits of tracking all your records, documents, leaves and many other things that matter on a single platform."
-				+ "\nKindly find the below information for logging into your account."
-				+ "\n\nEID : "+emp.getEid()+""
-				+ "\nEmail : "+emp.getEmail()+""
-				+ "\nPassword: "+temp+""
-				+ "\n\nYou can login into your account with the above EID and Password.\n\nThanks.";
-		SimpleMailMessage welcomeemail = new SimpleMailMessage();
-		welcomeemail.setTo(recipientAddress);
-		welcomeemail.setSubject(subject);
-		welcomeemail.setText(message);
-		mailSender.send(welcomeemail);
-		return "redirect:/admdashboard";
-	}
-
-	@RequestMapping(value= "leaveApplied", method = RequestMethod.POST)
+	@RequestMapping(value= "/empdashboard/leaveapplication", method = RequestMethod.POST)
 	public String leaveApplied(@ModelAttribute("employeeLeave") EmployeeLeave el){
 		this.employeeLeaveRepository.save(el);
-		return "redirect:/admdashboard/";
+		return "redirect:/empdashboard/";
 	}
 
-	@RequestMapping(value= "/admdashboard/employee/update", method = RequestMethod.POST)
-	public String employeeEdited(@ModelAttribute("employee") Employee emp){
-		if(emp.getEid() != 0){
-			this.employeeRepository.save(emp);
-		}
-		return "redirect:/admdashboard/employees";
-	}
-
-	@RequestMapping("/admdashboard/employee/delete/{eid}")
-	public String removeEmployee(@PathVariable("eid") long eid){
-		this.employeeRepository.deleteById(eid);
-		return "redirect:/admdashboard/employees";
-	}
-
-	@RequestMapping("/admdashboard/employee/edit/{eid}")
-	public String editEmployee(@PathVariable("eid") int eid, Model model){
-		model.addAttribute("employee", this.employeeRepository.findById(eid));
-		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/employeeUpdateForm";
-	}
-
-	@RequestMapping("/admdashboard/employee/email/{eid}")
-	public String sendEmailToEmployee(@PathVariable("eid") int eid, Model model){
-		model.addAttribute("employee", this.employeeRepository.findById(eid));
-		model.addAttribute("listEmployees", this.employeeRepository.findAll());
-		return "admin/employee/employeeEmailForm";
-	}
-
-	@RequestMapping("/admdashboard/employeeleave/approve/{lid}")
-	public String sendLeaveApprovalMail(@PathVariable("lid") long lid, Model model){
-		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
-		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
-		this.employeeLeaveRepository.deleteById(lid);
-		return "admin/leave/approvalForm";
-	}
-
-	@RequestMapping("/admdashboard/employeeleave/reject/{lid}")
-	public String sendLeaveRejectionMail(@PathVariable("lid") long lid, Model model){
-		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
-		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
-		this.employeeLeaveRepository.deleteById(lid);
-		return "admin/leave/rejectionForm";
-	}
-
-	@RequestMapping("/admdashboard/findemployee")
-	public String employeeSearchForm(){
-		return "admin/employee/employeeSearchForm";
-	}
-
-	@RequestMapping("/admdashboard/timetracking")
-	public String employeeTimeTracking(){
-		return "admin/employee/employeeTimeTracking";
-	}
-
-	@RequestMapping("/admdashboard/attendance")
-	public String employeeAttendance(){
-		return "admin/employee/employeeAttendance";
-	}
-
-	@RequestMapping("/admdashboard/requests")
-	public String employeeRequests(){
-		return "admin/employee/employeeRequests";
-	}
-	
-	@RequestMapping("/admdashboard/documents")
-	public String employeeDocuments(){
-		return "admin/employee/employeeDocuments";
-	}
-
-	@RequestMapping(value="/admdashboard/findemployee",method=RequestMethod.POST)
-	public String findEmployeeById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
+	@RequestMapping(value="/empdashboard/myprofile",method=RequestMethod.POST)
+	public String findEmployeeProfileById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
 		Employee emp = employeeRepository.findById(eid);
 		if(emp!=null) {
 			model.addAttribute("employee", this.employeeRepository.findById(eid));
-			return "admin/employee/employeeProfile";
+			return "employee/employeeProfile";
 		}
 		else {
-			return "exceptions/employeeProfileNotFound";
+			return "exceptions/employeeProfileNotFoundForEmployee";
 		}
-	}
-
-	@RequestMapping(value="/admdashboard/employee/email",method=RequestMethod.POST)
-	public String sendEmail(HttpServletRequest request) {
-		String recipientAddress = request.getParameter("email");
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
-		SimpleMailMessage email = new SimpleMailMessage();
-		email.setTo(recipientAddress);
-		email.setSubject(subject);
-		email.setText(message);
-		mailSender.send(email);
-		return "redirect:/admdashboard";
-	}
-
-	@RequestMapping(value="/admindashboard/employeeleave/rejected",method=RequestMethod.POST)
-	public String rejectionMail(HttpServletRequest request) {
-		String recipientAddress = request.getParameter("email");
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
-		SimpleMailMessage email = new SimpleMailMessage();
-		email.setTo(recipientAddress);
-		email.setSubject(subject);
-		email.setText(message);
-		mailSender.send(email);
-		return "redirect:/admdashboard/employeeleaves";
-	}
-
-	@RequestMapping(value="/admindashboard/employeeleave/approved",method=RequestMethod.POST)
-	public String approvalEmail(HttpServletRequest request) {
-		String recipientAddress = request.getParameter("email");
-		String subject = request.getParameter("subject");
-		String message = request.getParameter("message");
-		SimpleMailMessage email = new SimpleMailMessage();
-		email.setTo(recipientAddress);
-		email.setSubject(subject);
-		email.setText(message);
-		mailSender.send(email);
-		return "redirect:/admdashboard/employeeleaves";
 	}
 }

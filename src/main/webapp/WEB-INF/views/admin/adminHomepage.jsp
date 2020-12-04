@@ -14,17 +14,17 @@
 	<jsp:include page="/WEB-INF/views/common/admin/adminSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="dashboard-heading">Dashboard</h3>
+			<h3 id="dashboard-heading">Dashboard(Demo)</h3>
 		</div>
 		<div id="dashboard-body">
 			<div id="top-boxes">
 				<div class="tb" id="tb1"><h4>Employees Strength</h4><h1>100</h1></div>
-				<div class="tb" id="tb2"><h4>Pending Leave Requests</h4><h1>40</h1></div>
+				<div class="tb" id="tb2"><h4>Leave Requests</h4><h1>40</h1></div>
 				<div class="tb" id="tb3"><h4>New Employees</h4><h1>30</h1></div>
 				<div class="tb" id="tb4"><h4>Today's Presence</h4><h1>50%</h1></div>
 			</div>
 			<div id="bottom-boxes">
-				<div class="bb" id="bb1"><h4>Employees On Leave</h4><h1>100</h1></div>
+				<div class="bb" id="bb1"><h4>On Leaves</h4><h1>100</h1></div>
 				<div class="bb" id="bb2"><h4>Pending Requests</h4><h1>40</h1></div>
 				<div class="bb" id="bb3"><h4>Storage Used</h4><h1>30</h1></div>
 				<div class="bb" id="bb4"><h4>Active Users</h4><h1>50%</h1></div>

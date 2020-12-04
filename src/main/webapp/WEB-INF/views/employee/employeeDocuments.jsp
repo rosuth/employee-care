@@ -7,14 +7,14 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/employee-sidebar.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/base.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/raiseissue.css">
-<title>Raise An Issue</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/mydocuments.css">
+<title>My Documents</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/employee/employeeSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="dashboard-heading">Raise An Issue</h3>
+			<h3 id="dashboard-heading">My Documents(Demo)</h3>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

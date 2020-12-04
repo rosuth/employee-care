@@ -101,12 +101,33 @@ form {
 	padding-right: 10px;
 }
 
+#login-page-bottom-links{
+	text-align:center;
+}
+
+#admin-login-link{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	color:black;
+	    padding-right: 10px;
+}
+
 #forgot-password-link {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
 	font-size: 16px;
 	text-align: center;
 	color: black;
+}
+
+#forgot-password-link{
+	font-family: 'Roboto Slab', serif;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	color:black;
 }
 
 #forgot-password-link-header {

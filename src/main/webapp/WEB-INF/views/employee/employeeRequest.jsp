@@ -8,13 +8,13 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/employee-sidebar.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/fonts/base.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/employee/employeeselfhelp.css">
-<title>Employee Self Help</title>
+<title>Employee Request</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/employee/employeeSidebar.jsp"></jsp:include>
 	<div style="margin-left: 16%">
 		<div class="w3-container">
-			<h3 id="dashboard-heading">Employee Self Help</h3>
+			<h3 id="dashboard-heading">Employee Request(Demo)</h3>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

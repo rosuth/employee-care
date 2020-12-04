@@ -15,7 +15,7 @@
 			<div id="bottom-div">
 				<button id="admin-login-button"><a href="/app/admlogin">Admin Login</a></button>
 				<button id="employee-login-button"><a href="/app/emplogin">Employee Login</a></button><br/><br/>
-				<a id="create-account-link" href="/app/createaccount">Create New Account</a>
+				<a id="create-account-link" href="/app/createaccount">Create New Admin Account</a>
 			</div>
 		</div>
 	</div>
