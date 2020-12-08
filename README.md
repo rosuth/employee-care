@@ -22,28 +22,11 @@ contact to system admins.
 3. Can contact system admins
 4. Can change their profile
 
-## RESTful APIs
+## REST APIs
 
 - GET: http://localhost:8080/app/apis/admin
-- GET: http://localhost:8080/app/apis/admin/1
-- POST: http://localhost:8080/app/apis/admin
-- PUT: http://localhost:8080/app/apis/admin/1
-- DELETE: http://localhost:8080/app/apis/admin
-- DELETE: http://localhost:8080/app/apis/admin/1
-
 - GET: http://localhost:8080/app/apis/employee
-- GET: http://localhost:8080/app/apis/employee/1
-- POST: http://localhost:8080/app/apis/employee
-- PUT: http://localhost:8080/app/apis/employee/1
-- DELETE: http://localhost:8080/app/apis/employee
-- DELETE: http://localhost:8080/app/apis/employee/1
-
 - GET: http://localhost:8080/app/apis/employeeleave
-- GET: http://localhost:8080/app/apis/employeeleave/1
-- POST: http://localhost:8080/app/apis/employeeleave
-- PUT: http://localhost:8080/app/apis/employeeleave/1
-- DELETE: http://localhost:8080/app/apis/employeeleave
-- DELETE: http://localhost:8080/app/apis/employeeleave/1
 
 ## Technologies Involved
 
