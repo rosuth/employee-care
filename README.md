@@ -9,24 +9,25 @@ contact to system admins.
 
 ## Admin
 
-1. Has the full access to the system and can view the profiles of employees.
+1. Has the full access to the system and can view the profiles of employees
 2. Can create/edit/delete an employee
-3. Can send email to the employees
-4. Can respond to the leave requests via email
-5. Can fetch the employee data
+3. Can send email to the employees individually
+4. Can respond to the leave requests via email with ready to use templates
+5. Can fetch the employee data with their id
 
 ## Employee
 
-1. Can see their profile
-2. Can apply for a leave
-3. Can contact system admins
-4. Can change their profile
+1. Can see their profile and update it
+2. Can apply for multiple leave and will receive an email upon approval/disapproval of their leaves
+3. Can contact system administrator
 
 ## REST APIs
 
 - GET: http://localhost:8080/app/apis/admin
 - GET: http://localhost:8080/app/apis/employee
 - GET: http://localhost:8080/app/apis/employeeleave
+
+You can make requests with GET, POST, PUT & DELETE. Find the respective API's in the code.
 
 ## Technologies Involved
 
@@ -54,25 +55,29 @@ Note: You've to enable the less secure option in your Google account
 
 Project will be up at localhost:8080/app
 
+Note: /app is the context path and if you change any request mapping or create a new one then change it accordingly, ignore the context path for hyperlinks in the view(JSP).
+
 ## Docker 
 
-To deploy this project on Docker
+To deploy this project with Docker:
 
 1. Change the database configuration first in application.properties
-2. locate docker-compose.yml and hit docker-compose up -d
-3. Go into the shell of your mysql container and hit the sql script
-4. Restart using docker-compose restart
+2. locate docker-compose.yml and change the database user credentials identical to applicatio.properties and hit docker-compose up -d on project root directory
+3. Go into the shell of your mysql container and run the sql script available under sql folder
+4. Restart both the containers using docker-compose restart to reflect your changes
+
+To get into container shell of mysql: docker exec -it <mysql-container-name> bash
 
 Project will be up at localhost:8080/app
 
 ## Kubernetes
 
-To deploy this project using Kubernetes (Minikube)
+To deploy this project on Minikube(single node cluster) with Kubernetes:
 
 1. git clone https://www.github.com/rohiton/employeecare
 2. Change the database configuration first in application.properties
 3. docker pull mysql:5.7
-4. docker pull 100598/employeecare:1.0 or build on your own with docker build -t 100598/employeecare:1.0 . command
+4. docker pull 100598/employeecare:1.0 or build on your own with docker build -t 100598/employeecare:1.0 .
 5. cd deployments
 6. Apply all the yml's file one by one
 7. Run the sql script in mysql pod
@@ -80,5 +85,4 @@ To deploy this project using Kubernetes (Minikube)
 9. Hit employeecare.com:{PORT}/app in browser
 
 This project is contributed by Rohit Suthar
-
 rohitkumar1121.rk@gmail.com
