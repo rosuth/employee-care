@@ -66,7 +66,7 @@ To deploy this project with Docker:
 3. Go into the shell of your mysql container and run the sql script available under sql folder
 4. Restart both the containers using docker-compose restart to reflect your changes
 
-To get into container shell of mysql: docker exec -it <mysql-container-name> bash
+To get into container shell of mysql: docker exec -it {mysql-container-name} bash
 
 Project will be up at localhost:8080/app
 
