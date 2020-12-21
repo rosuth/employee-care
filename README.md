@@ -46,14 +46,14 @@ To run this project on localhost using Maven
 
 1. git clone https://www.github.com/rohiton/employeecare
 2. cd employeecare
-3. Go to src/main/resources and change the database configuration for localhost and set username and password for email
-4. Find db.sql under sql folder and run the entire script
-5. mvn eclipse:eclipse && mvn clean install
-6. mvn spring-boot:run
+3. Read DB instructions from /sql/mysql-db.md file
+5. Run mvn eclipse:eclipse && mvn clean install
+6. Run mvn spring-boot:run
 
 Note: You've to enable the less secure option in your Google account
 
 Project will be up at localhost:8080/app
+Note: See the user credentials in the DB to login into any Admin or Employee account
 
 Note: /app is the context path and if you change any request mapping or create a new one then change it accordingly, ignore the context path for hyperlinks in the view(JSP).
 
