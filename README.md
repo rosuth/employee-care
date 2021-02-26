@@ -84,5 +84,3 @@ To deploy this project on Minikube(single node cluster) with Kubernetes:
 8. Add the 192.168.###.## employeecare.com in your /etc/hosts file
 9. Hit employeecare.com:{PORT}/app in browser
 
-This project is contributed by Rohit Suthar
-rohitkumar1121.rk@gmail.com
