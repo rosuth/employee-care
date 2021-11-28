@@ -44,7 +44,7 @@ You can make requests with GET, POST, PUT & DELETE. Find the respective API's in
 
 To run this project on localhost using Maven
 
-1. git clone https://www.github.com/rohiton/employeecare
+1. git clone https://www.github.com/rohiton98/employeecare
 2. cd employeecare
 3. Read DB instructions from /sql/mysql-db.md file
 5. Run mvn eclipse:eclipse && mvn clean install
@@ -74,7 +74,7 @@ Project will be up at localhost:8080/app
 
 To deploy this project on Minikube(single node cluster) with Kubernetes:
 
-1. git clone https://www.github.com/rohiton/employeecare
+1. git clone https://www.github.com/rohiton98/employeecare
 2. Change the database configuration first in application.properties
 3. docker pull mysql:5.7
 4. docker pull 100598/employeecare:1.0 or build on your own with docker build -t 100598/employeecare:1.0 .
