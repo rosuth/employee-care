@@ -14,7 +14,7 @@
 	<div id="parent">
 		<h3>Support</h3>
 
-		<p>Send an email at rohitkumar1121.rk@gmail.com</p>
+		<p>Send an email at [email]</p>
 		<a href="/app">Redirect to home</a>
 		
 	</div>

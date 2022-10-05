@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: employeecare-app
-          image: 100598/employeecare:1.0
+          image: {dockerhub-username}/employeecare:1.0
           ports:
             - containerPort: 8080                
           env:   

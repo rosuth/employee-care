@@ -37,8 +37,6 @@ contact to system admins.</p>
 <li>An employee can change their profile</li>
 </ol>
 
-<p>This project is contributed by Rohit Suthar</p>
-
 <a href="/app">Redirect to home</a>
 
 </div>
