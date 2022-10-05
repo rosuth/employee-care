@@ -1,4 +1,4 @@
-## Employee Care
+### employeecare
 
 A project that deals with managing employees in a workspace by eliminating some of the manual tasks and making things more easier than
 before, it's a web application built using Spring framework of Java along with other technologies.
@@ -7,7 +7,7 @@ This project has a seperate dashboard for the employees and admins of an organiz
 apart. An admin has full control over the employees while an employee has access to their own profile and can apply for an leave or can
 contact to system admins.
 
-## Admin
+### Admin
 
 1. Has the full access to the system and can view the profiles of employees
 2. Can create/edit/delete an employee
@@ -15,13 +15,13 @@ contact to system admins.
 4. Can respond to the leave requests via email with ready to use templates
 5. Can fetch the employee data with their id
 
-## Employee
+### Employee
 
 1. Can see their profile and update it
 2. Can apply for multiple leave and will receive an email upon approval/disapproval of their leaves
 3. Can contact system administrator
 
-## REST APIs
+### REST APIs
 
 - GET: http://localhost:8080/app/apis/admin
 - GET: http://localhost:8080/app/apis/employee
@@ -40,14 +40,14 @@ You can make requests with GET, POST, PUT & DELETE. Find the respective API's in
 7. Docker
 8. Kubernetes
 
-## Run
+### Run
 
 To run this project on localhost using Maven
 
 1. git clone https://www.github.com/clonerohit/employeecare
 2. cd employeecare
 3. Read DB instructions from /sql/mysql-db.md file
-5. Run mvn eclipse:eclipse && mvn clean install
+5. Run mvn clean install
 6. Run mvn spring-boot:run
 
 Note: You've to enable the less secure option in your Google account
@@ -57,7 +57,7 @@ Note: See the user credentials in the DB to login into any Admin or Employee acc
 
 Note: /app is the context path and if you change any request mapping or create a new one then change it accordingly, ignore the context path for hyperlinks in the view(JSP).
 
-## Docker 
+### Docker 
 
 To deploy this project with Docker:
 
@@ -70,7 +70,7 @@ To get into container shell of mysql: docker exec -it {mysql-container-name} bas
 
 Project will be up at localhost:8080/app
 
-## Kubernetes
+### Kubernetes
 
 To deploy this project on Minikube(single node cluster) with Kubernetes:
 
