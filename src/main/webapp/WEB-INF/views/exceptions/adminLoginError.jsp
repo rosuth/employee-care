@@ -3,7 +3,7 @@
 <title>Admin Login Error</title>
 <script>
 	function adminNotFoundAlert() {
-		alert("Are you sure, you own an Admin account?");
+		alert("You've entered incorrect email/password. Please login with correct credentials.");
 		window.location.replace("/app/admlogin");
 	}
 </script>

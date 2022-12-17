@@ -18,7 +18,7 @@
 	width: 400px;
 	float: left;
 	height: 500px;
-	background-color: #ffffff;
+	background-color: #2d6fbb;
 }
 
 #app-name {
@@ -32,12 +32,13 @@
 	font-weight: 500;
 	color: white;
 	margin-left: 10px;
+		text-align: center;
 }
 
 #login-header {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
-	color: #2381de;
+	color: white;
 	text-align: center;
 	margin-top: 35%;
 }
@@ -58,8 +59,8 @@ form {
 #email-label, #password-label, #email-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
 	margin-right: 8px;
+	color:white;
 }
 
 #username-input {
@@ -81,23 +82,22 @@ form {
 }
 
 #employee-login-button {
-	border: 3px solid #2381de;
-	background: #2381de;
-	font-size: 16px;
-	font-family: 'Roboto Slab';
-	padding: 5px;
-	border-radius: 3px;
-	text-align: center;
-	margin-top: 20px;
-	color: white;
+border: 0px;
+    background: #2381de;
+    font-size: 16px;
+    font-family: 'Roboto Slab';
+    padding: 7px;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    cursor: pointer;
 }
 
 #login-as-admin-button {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
 	text-align: center;
-	color: black;
 	padding-right: 10px;
 }
 
@@ -108,26 +108,20 @@ form {
 #admin-login-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
 	text-align: center;
-	color:black;
 	    padding-right: 10px;
 }
 
 #forgot-password-link {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
 	text-align: center;
-	color: black;
 }
 
 #forgot-password-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
 	text-align: center;
-	color:black;
 }
 
 #forgot-password-link-header {
@@ -146,4 +140,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 td {
 	width: 100px;
 	text-align: left;
+}
+
+input[type=email],input[type=password]{
+padding: 3px;
+    width: 130px;
+    font-size: inherit;
 }

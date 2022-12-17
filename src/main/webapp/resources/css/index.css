@@ -1,11 +1,14 @@
 #admin-login-button, #employee-login-button {
-	border: 3px solid #2381de;
-	background: #2381de;
-	font-size: 16px;
-	font-family: 'Roboto Slab';
-	padding: 5px;
-	border-radius: 3px;
-	text-align:center;
+    border: 0px;
+    background: #2381de;
+    font-size: 16px;
+    font-family: 'Roboto Slab';
+    padding: 7px;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    cursor: pointer;
 }
 
 a {
@@ -14,9 +17,8 @@ a {
 
 #create-account-link{
 	font-family: 'Roboto Slab', serif;
-	font-size: 16px;
 	width: 70%;
-	color: #2381de;
+	color: white;
 	font-weight: bold;
 }
 
@@ -44,7 +46,7 @@ a {
 	width: 400px;
 	float: left;
 	height: 500px;
-	background-color: #ffffff;
+	background-color: #2d6fbb;
 }
 
 #app-name {
@@ -58,12 +60,13 @@ a {
 	font-weight: 500;
 	color: white;
 	margin-left: 10px;
+		text-align: center;
 }
 
 #login-header {
 font-family: 'Roboto Slab', serif;
 font-weight: 700;
-color: #2381de;
+color: white;
 text-align: center;
 margin-top: 35%;
 }
@@ -83,7 +86,7 @@ form {
 #email-label, #password-label, #aemail-label {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
+	color:white;
 }
 
 #id-input {
@@ -107,9 +110,8 @@ form {
 #employee-login-link{
 	font-family: 'Roboto Slab', serif;
 	font-weight: 500;
-	font-size: 16px;
+
 	text-align: center;
-	color:black;
 }
 
 #forgot-password-link{

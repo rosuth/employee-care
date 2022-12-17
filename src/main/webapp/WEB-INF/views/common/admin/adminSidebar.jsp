@@ -1,6 +1,6 @@
 <div class="w3-sidebar w3-bar-block" style="width: 16%">
 	<h4 class="w3-bar-item">
-		<i class="fa fa-check-circle" id="admin-icon"></i>Admin Account
+		<i class="fa fa-check-circle" id="admin-icon" style="font-size:18px;"></i>Logged in as administrator
 	</h4>
 	<hr id="hor-rule">
 	<a href="/app/admdashboard" class="w3-bar-item w3-button">Dashboard</a> 

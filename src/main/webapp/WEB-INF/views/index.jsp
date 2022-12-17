@@ -11,10 +11,10 @@
 	<div id="parent-div">
 		<jsp:include page="/WEB-INF/views/common/login/app-info.jsp"></jsp:include>
 		<div id="right-div">
-			<h2 id="login-header">Login to your account</h2>
+			<h2 id="login-header">Hey! Are you an?</h2>
 			<div id="bottom-div">
-				<button id="admin-login-button"><a href="/app/admlogin">Admin Login</a></button>
-				<button id="employee-login-button"><a href="/app/emplogin">Employee Login</a></button><br/><br/>
+				<button id="admin-login-button"><a href="/app/admlogin">Administrator</a></button>
+				<button id="employee-login-button"><a href="/app/emplogin">Employee</a></button><br/><br/>
 				<a id="create-account-link" href="/app/createaccount">Create New Admin Account</a>
 			</div>
 		</div>
