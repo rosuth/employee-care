@@ -2,18 +2,20 @@ version: '3'
 services:
     employeecare:
         container_name: employeecare
-        image: {dockerhub-username}/employeecare:1.0
-        ports: 
-        - 8080:8080
+        image: rohitmten/employeecare:1.0
+        ports:
+            - 8080:8080
     mysql:
         container_name: employeecare-db
         image: mysql:5.7
         environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_USER=jeff
-        - MYSQL_PASSWORD=1234
-        - MYSQL_DATABASE=EMPLOYEECARE
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=rohit
+            - MYSQL_PASSWORD=1234
+            - MYSQL_DATABASE=EMPLOYEECARE
         volumes:
-        - appvolume:/var/lib/mysql
+            - appvolume:/var/lib/mysql
+        ports:
+            - "3306:3306"
 volumes:
     appvolume:  
