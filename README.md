@@ -83,5 +83,3 @@ To deploy this project on Minikube(single node cluster) with Kubernetes:
 7. Run the sql script in mysql pod
 8. Add the 192.168.###.## employeecare.com in your /etc/hosts file
 9. Hit employeecare.com:{PORT}/app in browser
-
-[git/rowhyt](https://www.github.com/rowhyt)
