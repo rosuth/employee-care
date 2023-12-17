@@ -29,7 +29,7 @@ Leave Type : <select name="leave_type">
 
 <table>
 <tr>
-<td>Emp ID : </td><td><input type="number" name="eid" required></td>
+<td>Emp ID : </td><td><input type="number" name="id" required></td>
 
 </tr>
 

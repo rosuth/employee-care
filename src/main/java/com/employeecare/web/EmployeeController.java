@@ -1,22 +1,15 @@
 package com.employeecare.web;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.lang3.RandomStringUtils;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.employeecare.model.Admin;
 import com.employeecare.model.Employee;
 import com.employeecare.model.EmployeeLeave;
 import com.employeecare.repository.AdminRepository;
@@ -104,14 +97,15 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value="/empdashboard/myprofile",method=RequestMethod.POST)
-	public String findEmployeeProfileById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
-		Employee emp = employeeRepository.findById(eid);
+	public String findEmployeeProfileById(@RequestParam("id") int id, Model model) throws ObjectNotFoundException{
+		Employee emp = employeeRepository.findById(id);
 		if(emp!=null) {
-			model.addAttribute("employee", this.employeeRepository.findById(eid));
+			model.addAttribute("employee", this.employeeRepository.findById(id));
 			return "employee/employeeProfile";
 		}
 		else {
 			return "exceptions/employeeProfileNotFoundForEmployee";
 		}
 	}
+
 }

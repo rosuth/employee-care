@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.employeecare.model.Employee;
 import com.employeecare.model.Role;
 import com.employeecare.repository.EmployeeRepository;
-import com.employeecare.web.dto.EmployeeRegistrationDto;
+import com.employeecare.dto.EmployeeRegistrationDto;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{

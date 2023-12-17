@@ -20,13 +20,13 @@ import com.employeecare.repository.EmployeeLeaveRepository;
 import com.employeecare.model.EmployeeLeave;
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping("/api")
 public class EmployeeLeaveRestController {
 
 	@Autowired
 	EmployeeLeaveRepository employeeLeaveRepository;
 
-	@GetMapping("/employeeleave")
+	@GetMapping("/employee-leave")
 	public ResponseEntity<List<EmployeeLeave>> getAllEmployeeLeaves() {
 		try {
 			List<EmployeeLeave> employeeLeaves = new ArrayList<EmployeeLeave>();
@@ -40,9 +40,9 @@ public class EmployeeLeaveRestController {
 		}
 	}
 
-	@GetMapping("/employeeleave/{lid}")
-	public ResponseEntity<EmployeeLeave> getEmployeeLeaveById(@PathVariable("lid") long lid) {
-		Optional<EmployeeLeave> employeeLeaves = Optional.ofNullable(employeeLeaveRepository.findById(lid));
+	@GetMapping("/employee-leave/{id}")
+	public ResponseEntity<EmployeeLeave> getEmployeeLeaveById(@PathVariable("id") long id) {
+		Optional<EmployeeLeave> employeeLeaves = Optional.ofNullable(employeeLeaveRepository.findById(id));
 		if (employeeLeaves.isPresent()) {
 			return new ResponseEntity<>(employeeLeaves.get(), HttpStatus.OK);
 		} else {
@@ -50,20 +50,20 @@ public class EmployeeLeaveRestController {
 		}
 	}
 
-	@PostMapping("/employeeleave")
+	@PostMapping("/employee-leave")
 	public ResponseEntity<EmployeeLeave> createEmployeeLeave(@RequestBody EmployeeLeave employeeLeave) {
 		try {
 			EmployeeLeave el = employeeLeaveRepository
-					.save(new EmployeeLeave(employeeLeave.getEid(),employeeLeave.getFullname(),employeeLeave.getEmail(),employeeLeave.getLeave_type(),employeeLeave.getDays(),employeeLeave.getLeave_start(),employeeLeave.getLeave_end(),employeeLeave.getReason()));
+					.save(new EmployeeLeave(employeeLeave.getEmp_id(),employeeLeave.getFullname(),employeeLeave.getEmail(),employeeLeave.getLeave_type(),employeeLeave.getDays(),employeeLeave.getLeave_start(),employeeLeave.getLeave_end(),employeeLeave.getReason()));
 			return new ResponseEntity<>(el, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-	@PutMapping("/employeeleave/{id}")
-	public ResponseEntity<EmployeeLeave> updateEmployeeLeave(@PathVariable("lid") long lid, @RequestBody EmployeeLeave employeeLeave) {
-		Optional<EmployeeLeave> employeeLeaveData = Optional.ofNullable(employeeLeaveRepository.findById(lid));
+	@PutMapping("/employee-leave/{id}")
+	public ResponseEntity<EmployeeLeave> updateEmployeeLeave(@PathVariable("id") long id, @RequestBody EmployeeLeave employeeLeave) {
+		Optional<EmployeeLeave> employeeLeaveData = Optional.ofNullable(employeeLeaveRepository.findById(id));
 
 		if (employeeLeaveData.isPresent()) {
 			EmployeeLeave e = employeeLeaveData.get();
@@ -80,17 +80,17 @@ public class EmployeeLeaveRestController {
 		}
 	}
 
-	@DeleteMapping("/employeeleave/{lid}")
-	public ResponseEntity<HttpStatus> deleteEmployeeLeave(@PathVariable("lid") long lid) {
+	@DeleteMapping("/employee-leave/{id}")
+	public ResponseEntity<HttpStatus> deleteEmployeeLeave(@PathVariable("id") long id) {
 		try {
-			employeeLeaveRepository.deleteById(lid);
+			employeeLeaveRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
-	@DeleteMapping("/employeeleave")
+	@DeleteMapping("/employee-leave")
 	public ResponseEntity<HttpStatus> deleteAllEmployeeLeaves() {
 		try {
 			employeeLeaveRepository.deleteAll();
@@ -100,4 +100,5 @@ public class EmployeeLeaveRestController {
 		}
 
 	}
+
 }

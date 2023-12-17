@@ -50,7 +50,7 @@
 					</tr>
 					<c:forEach items="${listEmployees}" var="employee">
 					<tr>
-						<td>${employee.eid}</td>
+						<td>${employee.id}</td>
 						<td>${employee.firstname}</td>
 						<td>${employee.lastname}</td>
 						<td>${employee.email}</td>
@@ -58,9 +58,9 @@
 						<td>${employee.gender}</td>
 						<td>${employee.address}</td>
 						<td>${employee.city}</td>
-						<td><a id="edit" href="<c:url value='/admdashboard/employee/edit/${employee.eid}' />"><i class="fa fa-edit" style="font-size:22px;"></i></a></td>
-						<td><a id="remove" onclick="return employeeDeletionConfirmation()" href="<c:url value='/admdashboard/employee/delete/${employee.eid}' />"><i class="fa fa-trash" style="font-size:22px;"></i></a></td>
-						<td><a id="mail" href="<c:url value='/admdashboard/employee/email/${employee.eid}' />"><i class="fa fa-envelope" style="font-size:22px;"></i></a></td>
+						<td><a id="edit" href="<c:url value='/admdashboard/employee/edit/${employee.id}' />"><i class="fa fa-edit" style="font-size:22px;"></i></a></td>
+						<td><a id="remove" onclick="return employeeDeletionConfirmation()" href="<c:url value='/admdashboard/employee/delete/${employee.id}' />"><i class="fa fa-trash" style="font-size:22px;"></i></a></td>
+						<td><a id="mail" href="<c:url value='/admdashboard/employee/email/${employee.id}' />"><i class="fa fa-envelope" style="font-size:22px;"></i></a></td>
 					</tr>
 					</c:forEach>
 				</table>

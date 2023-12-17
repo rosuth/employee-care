@@ -61,18 +61,18 @@ public class CommonController {
 	}
 	
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.POST)
-	public String recoverAccount(Model model, @RequestParam("eid") int eid, @RequestParam("firstname") String firstname, @RequestParam("email") String email, HttpServletRequest request){
+	public String recoverAccount(Model model, @RequestParam("id") int id, @RequestParam("firstname") String firstname, @RequestParam("email") String email, HttpServletRequest request){
 		try {
 			Employee emp = employeeRepository.findByEmail(email);
 			model.addAttribute("employee", emp);
 			if(emp!=null) {
-				if(eid==emp.getEid() && firstname.equals(emp.getFirstname()) && email.equals(emp.getEmail())) {
+				if(id==emp.getId() && firstname.equals(emp.getFirstname()) && email.equals(emp.getEmail())) {
 					String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
 					emp.setPassword(temp);
 					String subject = "Employee Care Account Recovery Process";
 					String message = "We have received the account recovery request on your Employee Care Account, kindly follow the steps below to complete the process and enjoy the benefits of Employee Care Account.\nIn case if you have not made any request for the same then do not share the information provided in this email to anyone.\n\n"
 							+ "Your Employee Care Account Information:\n\n"
-							+ "Employee ID: "+emp.getEid()+"\n"
+							+ "Employee ID: "+emp.getId()+"\n"
 							+ "Name: "+emp.getFirstname()+" "+emp.getLastname()+"\n"
 							+ "Email: "+emp.getEmail()+"\n"
 							+ "New Password: "+temp+"\n\n"

@@ -23,7 +23,7 @@
 					<table border="1px" id="viewTable" cellspacing="5px" cellpadding="5px">
 						<tr>
 							<td width="80"><b>EID</b></td>
-							<td>${employee.eid}</td>
+							<td>${employee.id}</td>
 						</tr>
 						<tr>
 							<td width="120"><b>Firstname</b></td>

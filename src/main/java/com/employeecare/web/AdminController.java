@@ -43,82 +43,98 @@ public class AdminController {
 	public String adminHomepage() {
 		return "admin/adminHomepage";
 	}
+
 	@RequestMapping("/admlogin")
 	public String adminLogin() {
 		return "authentication/adminLogin";
 	}
+
 	@RequestMapping("/admdashboard/timetracking")
 	public String employeeTimeTracking(){
 		return "admin/employee/employeeTimeTracking";
 	}
+
 	@RequestMapping("/admdashboard/attendance")
 	public String employeeAttendanceForAdmin(){
 		return "admin/employee/employeeAttendance";
 	}
+
 	@RequestMapping("/admdashboard/documents")
 	public String employeeDocumentsForAdmin(){
 		return "admin/employee/employeeDocuments";
 	}
+
 	@RequestMapping("/admdashboard/requests")
 	public String employeeRequestForAdmin(){
 		return "admin/employee/employeeRequests";
 	}
+
 	@RequestMapping("/admdashboard/findemployee")
 	public String employeeSearchForm(){
 		return "admin/employee/employeeSearchForm";
 	}
+
 	@RequestMapping(value = "/admdashboard/logout", method = RequestMethod.GET)
 	public String adminLogout() {
 		return "redirect:/";
 	}
-	@RequestMapping("/admdashboard/employee/delete/{eid}")
-	public String removeEmployee(@PathVariable("eid") long eid){
-		this.employeeRepository.deleteById(eid);
+
+	@RequestMapping("/admdashboard/employee/delete/{id}")
+	public String removeEmployee(@PathVariable("id") long id){
+		this.employeeRepository.deleteById(id);
 		return "redirect:/admdashboard/employees";
 	}
-	@RequestMapping("/admdashboard/employee/edit/{eid}")
-	public String editEmployee(@PathVariable("eid") int eid, Model model){
-		model.addAttribute("employee", this.employeeRepository.findById(eid));
+
+	@RequestMapping("/admdashboard/employee/edit/{id}")
+	public String editEmployee(@PathVariable("id") int id, Model model){
+		model.addAttribute("employee", this.employeeRepository.findById(id));
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
 		return "admin/employee/employeeUpdateForm";
 	}
-	@RequestMapping("/admdashboard/employee/email/{eid}")
-	public String sendEmailToEmployee(@PathVariable("eid") int eid, Model model){
-		model.addAttribute("employee", this.employeeRepository.findById(eid));
+
+	@RequestMapping("/admdashboard/employee/email/{id}")
+	public String sendEmailToEmployee(@PathVariable("id") int id, Model model){
+		model.addAttribute("employee", this.employeeRepository.findById(id));
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
 		return "admin/employee/employeeEmailForm";
 	}
-	@RequestMapping("/admdashboard/employeeleave/approve/{lid}")
-	public String sendLeaveApprovalMail(@PathVariable("lid") long lid, Model model){
-		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
+
+	@RequestMapping("/admdashboard/employeeleave/approve/{id}")
+	public String sendLeaveApprovalMail(@PathVariable("id") long id, Model model){
+		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(id));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
-		this.employeeLeaveRepository.deleteById(lid);
+		this.employeeLeaveRepository.deleteById(id);
 		return "admin/leave/approvalForm";
 	}
-	@RequestMapping("/admdashboard/employeeleave/reject/{lid}")
-	public String sendLeaveRejectionMail(@PathVariable("lid") long lid, Model model){
-		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(lid));
+
+	@RequestMapping("/admdashboard/employeeleave/reject/{id}")
+	public String sendLeaveRejectionMail(@PathVariable("id") long id, Model model){
+		model.addAttribute("employeeLeave", this.employeeLeaveRepository.findById(id));
 		model.addAttribute("listEmployeesLeave", this.employeeLeaveRepository.findAll());
-		this.employeeLeaveRepository.deleteById(lid);
+		this.employeeLeaveRepository.deleteById(id);
 		return "admin/leave/rejectionForm";
 	}
+
 	@RequestMapping("/admdashboard/employees")
 	public String viewEmployees(Model model) {
 		model.addAttribute("employee", new Employee());
 		model.addAttribute("listEmployees", this.employeeRepository.findAll());
 		return "admin/employee/employeeList";
 	}
+
 	@RequestMapping("/admdashboard/employeeleaves")
 	public String viewEmployeeLeaves(Model model) {
 		model.addAttribute("employeeLeave", new EmployeeLeave());
 		model.addAttribute("listEmployeesLeaves", this.employeeLeaveRepository.findAll());
 		return "admin/leave/employeeLeaveList";
 	}
+
 	@RequestMapping("/admdashboard/employee/add")
 	public String employeeRegistrationForm(@ModelAttribute("employee") Employee emp)
 	{
 		return "admin/employee/employeeRegistrationForm";
 	}
+
 	@RequestMapping("/admdashboard/employeeleave/add")
 	public String employeeLeaveForm(@ModelAttribute("employeeLeave") EmployeeLeave el)
 	{
@@ -156,7 +172,7 @@ public class AdminController {
 		String subject = "Welcome "+emp.getFirstname()+" to Employee Care";
 		String message = "Employee Care Welcomes You!\n\nYour Employee Account has been created successfully by your System Admin.\nEnjoy the unlimited benefits of tracking all your records, documents, leaves and many other things that matter on a single platform."
 				+ "\nKindly find the below information for logging into your account."
-				+ "\n\nEID : "+emp.getEid()+""
+				+ "\n\nEID : "+emp.getId()+""
 				+ "\nEmail : "+emp.getEmail()+""
 				+ "\nPassword: "+temp+""
 				+ "\n\nYou can login into your account with the above EID and Password.\n\nThanks.";
@@ -170,7 +186,7 @@ public class AdminController {
 
 	@RequestMapping(value= "/admdashboard/employee/update", method = RequestMethod.POST)
 	public String employeeEdited(@ModelAttribute("employee") Employee emp){
-		if(emp.getEid() != 0){
+		if(emp.getId() != 0){
 			emp.setPassword(null);
 			String temp = RandomStringUtils.randomAlphanumeric(6).toUpperCase();
 			emp.setPassword(temp);
@@ -192,10 +208,10 @@ public class AdminController {
 	}
 
 	@RequestMapping(value="/admdashboard/findemployee",method=RequestMethod.POST)
-	public String findEmployeeById(@RequestParam("eid") int eid, Model model) throws ObjectNotFoundException{
-		Employee emp = employeeRepository.findById(eid);
+	public String findEmployeeById(@RequestParam("id") int id, Model model) throws ObjectNotFoundException{
+		Employee emp = employeeRepository.findById(id);
 		if(emp!=null) {
-			model.addAttribute("employee", this.employeeRepository.findById(eid));
+			model.addAttribute("employee", this.employeeRepository.findById(id));
 			return "admin/employee/employeeProfile";
 		}
 		else {

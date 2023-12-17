@@ -1,18 +1,18 @@
 version: '3'
 services:
     employeecare:
-        container_name: employeecare
-        image: rohitmten/employeecare:1.0
+        container_name: employee-care
+        image: {hub-username }/employee-care:1.0
         ports:
             - 8080:8080
     mysql:
-        container_name: employeecare-db
+        container_name: employee-care-db
         image: mysql:5.7
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_USER=rohit
-            - MYSQL_PASSWORD=1234
-            - MYSQL_DATABASE=EMPLOYEECARE
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=pass
+            - MYSQL_DATABASE=employee_care
         volumes:
             - appvolume:/var/lib/mysql
         ports:

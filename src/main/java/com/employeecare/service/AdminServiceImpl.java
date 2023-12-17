@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import com.employeecare.model.Role;
 import com.employeecare.model.Admin;
 import com.employeecare.repository.AdminRepository;
-import com.employeecare.web.dto.AdminRegistrationDto;
+import com.employeecare.dto.AdminRegistrationDto;
 
 @Service
 public class AdminServiceImpl implements AdminService{

@@ -36,16 +36,16 @@
 	</tr>
 	<c:forEach items="${listEmployeesLeaves}" var="employeeLeave">
 	<tr>
-		<td>${employeeLeave.lid}</td>
-		<td>${employeeLeave.eid}</td>
+		<td>${employeeLeave.id}</td>
+		<td>${employeeLeave.id}</td>
  		<td>${employeeLeave.leave_type}</td>
 		<td>${employeeLeave.fullname}</td>
 		<td>${employeeLeave.leave_start}</td>
 		<td>${employeeLeave.leave_end}</td>
 		<td>${employeeLeave.days}</td>
 		<td>${employeeLeave.reason}</td>
-	    <td><a href="<c:url value='/admdashboard/employeeleave/approve/${employeeLeave.lid}' />" ><i class="fa fa-check" style="font-size:22px;"></i></a></td>
-	    <td><a href="<c:url value='/admdashboard/employeeleave/reject/${employeeLeave.lid}' />" ><i class="fa fa-close" style="font-size:22px;"></i></a></td>
+	    <td><a href="<c:url value='/admdashboard/employeeleave/approve/${employeeLeave.id}' />" ><i class="fa fa-check" style="font-size:22px;"></i></a></td>
+	    <td><a href="<c:url value='/admdashboard/employeeleave/reject/${employeeLeave.id}' />" ><i class="fa fa-close" style="font-size:22px;"></i></a></td>
 	</tr>
 	</c:forEach>
 	</table>

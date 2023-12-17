@@ -30,11 +30,11 @@ function employeeUpdateConfirmation()
 					<form:form action="${addAction}" modelAttribute="employee">
 						<table>
 							<tr>
-								<td><form:label path="eid">
+								<td><form:label path="id">
 										<spring:message text="EID" />
 								</form:label></td>
-								<td><form:input path="eid" readonly="true" size="8"
-									disabled="true" /> <form:hidden path="eid" /></td>
+								<td><form:input path="id" readonly="true" size="8"
+									disabled="true" /> <form:hidden path="id" /></td>
 							</tr>
 							<tr>
 								<td><form:input path="password" size="8"

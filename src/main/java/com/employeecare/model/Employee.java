@@ -1,5 +1,7 @@
 package com.employeecare.model;
 
+import lombok.Data;
+
 import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,46 +16,45 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="EMPLOYEE")
+@Data
+@Table(name="employee")
 public class Employee {
 
 	@Id
-	@Column(name="EID")
+	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long eid;
+	private Long id;
 
-	@Column(name="PASSWORD")
+	@Column(name="password")
 	private String password;
 
-	@Column(name="FIRSTNAME")
+	@Column(name="firstname")
 	private String firstname;
 
-	@Column(name="LASTNAME")
+	@Column(name="lastname")
 	private String lastname;
 
-	@Column(name="EMAIL")
+	@Column(name="email")
 	private String email;
 
-	@Column(name="DOB")
+	@Column(name="dob")
 	private String dob;
 
-	@Column(name="GENDER")
+	@Column(name="gender")
 	private String gender;
 
-	@Column(name="ADDRESS")
+	@Column(name="address")
 	private String address;
 
-	@Column(name="CITY")
+	@Column(name="city")
 	private String city;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
-			name = "ROLES",
-			joinColumns = @JoinColumn(
-					name = "EMP_ID", referencedColumnName = "EID"),
-			inverseJoinColumns = @JoinColumn(
-					name = "ROLE_ID", referencedColumnName = "ID"))
-
+			name = "employee_role",
+			joinColumns = @JoinColumn(name = "emp_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")
+	)
 	private Collection<Role> roles;
 
 	public Employee() {
@@ -73,89 +74,4 @@ public class Employee {
 		this.roles = roles;
 	}
 
-	public Long getEid() {
-		return eid;
-	}
-
-	public void setEid(Long eid) {
-		this.eid = eid;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Collection<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [eid=" + eid + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", email=" + email + ", dob=" + dob + ", gender=" + gender + ", address=" + address + ", city=" + city
-				+ "]";
-	}
 }

@@ -24,7 +24,7 @@ function accountRecovery(){
 				<table style="margin-left: 81px;">
 					<tr>
 						<td id="email-label"><label>Employee ID </label></td>
-						<td><input type="number" size="15" name="eid" required="true"></td>
+						<td><input type="number" size="15" name="id" required="true"></td>
 					</tr>
 					<tr>
 						<td id="firstname-label"><label>Firstname </label></td>

@@ -14,7 +14,7 @@ import com.employeecare.model.EmployeeLeave;
 import com.employeecare.model.Role;
 import com.employeecare.repository.EmployeeLeaveRepository;
 import com.employeecare.repository.EmployeeRepository;
-import com.employeecare.web.dto.EmployeeLeaveRegistrationDto;
+import com.employeecare.dto.EmployeeLeaveRegistrationDto;
 
 @Service
 public class EmployeeLeaveServiceImpl implements EmployeeLeaveService{
@@ -43,7 +43,7 @@ public class EmployeeLeaveServiceImpl implements EmployeeLeaveService{
 
 	@Override
 	public EmployeeLeave save(EmployeeLeaveRegistrationDto registrationDto) {
-		EmployeeLeave employeeLeave = new EmployeeLeave(registrationDto.getEid(),registrationDto.getFullname(),
+		EmployeeLeave employeeLeave = new EmployeeLeave(registrationDto.getId(),registrationDto.getFullname(),
 				registrationDto.getEmail(),registrationDto.getLeave_type(),registrationDto.getLeave_start(),
 				registrationDto.getLeave_end(),registrationDto.getDays(),registrationDto.getReason());
 

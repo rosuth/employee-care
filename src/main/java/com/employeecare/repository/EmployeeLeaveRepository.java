@@ -5,7 +5,7 @@ import com.employeecare.model.EmployeeLeave;
 
 public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Long> {
 
-	EmployeeLeave findById(long lid);
+	EmployeeLeave findById(long id);
 	EmployeeLeave findByEmail(String email);
 
 }

@@ -20,7 +20,7 @@ import com.employeecare.repository.EmployeeRepository;
 import com.employeecare.model.Employee;
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping("/api")
 public class EmployeeRestController {
 
 	@Autowired
@@ -40,9 +40,9 @@ public class EmployeeRestController {
 		}
 	}
 
-	@GetMapping("/employee/{eid}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable("eid") long eid) {
-		Optional<Employee> employee = Optional.ofNullable(employeeRepository.findById(eid));
+	@GetMapping("/employee/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") long id) {
+		Optional<Employee> employee = Optional.ofNullable(employeeRepository.findById(id));
 		if (employee.isPresent()) {
 			return new ResponseEntity<>(employee.get(), HttpStatus.OK);
 		} else {
@@ -61,9 +61,9 @@ public class EmployeeRestController {
 		}
 	}
 
-	@PutMapping("/employee/{eid}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable("eid") long eid, @RequestBody Employee employee) {
-		Optional<Employee> employeeData = Optional.ofNullable(employeeRepository.findById(eid));
+	@PutMapping("/employee/{id}")
+	public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
+		Optional<Employee> employeeData = Optional.ofNullable(employeeRepository.findById(id));
 
 		if (employeeData.isPresent()) {
 			Employee e = employeeData.get();
@@ -81,10 +81,10 @@ public class EmployeeRestController {
 		}
 	}
 
-	@DeleteMapping("/employee/{eid}")
-	public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable("eid") long eid) {
+	@DeleteMapping("/employee/{id}")
+	public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable("id") long id) {
 		try {
-			employeeRepository.deleteById(eid);
+			employeeRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -101,4 +101,5 @@ public class EmployeeRestController {
 		}
 
 	}
+
 }

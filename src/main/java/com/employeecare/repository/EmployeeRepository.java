@@ -5,7 +5,7 @@ import com.employeecare.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-	Employee findById(long eid);
+	Employee findById(long id);
 	Employee findByEmail(String email);
 
 }

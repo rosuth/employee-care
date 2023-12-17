@@ -20,7 +20,7 @@ import com.employeecare.repository.AdminRepository;
 import com.employeecare.model.Admin;
 
 @RestController
-@RequestMapping("/apis")
+@RequestMapping("/api")
 public class AdminRestController {
 
 	@Autowired
@@ -40,9 +40,9 @@ public class AdminRestController {
 		}
 	}
 
-	@GetMapping("/admin/{aid}")
-	public ResponseEntity<Admin> getAdminById(@PathVariable("aid") long aid) {
-		Optional<Admin> admin = Optional.ofNullable(adminRepository.findById(aid));
+	@GetMapping("/admin/{id}")
+	public ResponseEntity<Admin> getAdminById(@PathVariable("id") long id) {
+		Optional<Admin> admin = Optional.ofNullable(adminRepository.findById(id));
 		if (admin.isPresent()) {
 			return new ResponseEntity<>(admin.get(), HttpStatus.OK);
 		} else {
@@ -61,9 +61,9 @@ public class AdminRestController {
 		}
 	}
 
-	@PutMapping("/admin/{aid}")
-	public ResponseEntity<Admin> updateAdmin(@PathVariable("aid") long aid, @RequestBody Admin admin) {
-		Optional<Admin> adminData = Optional.ofNullable(adminRepository.findById(aid));
+	@PutMapping("/admin/{id}")
+	public ResponseEntity<Admin> updateAdmin(@PathVariable("id") long id, @RequestBody Admin admin) {
+		Optional<Admin> adminData = Optional.ofNullable(adminRepository.findById(id));
 
 		if (adminData.isPresent()) {
 			Admin a = adminData.get();
@@ -77,10 +77,10 @@ public class AdminRestController {
 		}
 	}
 
-	@DeleteMapping("/admin/{aid}")
-	public ResponseEntity<HttpStatus> deleteAdmin(@PathVariable("aid") long aid) {
+	@DeleteMapping("/admin/{id}")
+	public ResponseEntity<HttpStatus> deleteAdmin(@PathVariable("id") long id) {
 		try {
-			adminRepository.deleteById(aid);
+			adminRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

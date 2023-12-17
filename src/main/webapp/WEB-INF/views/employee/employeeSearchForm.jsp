@@ -22,7 +22,7 @@
 				<div>
 					<c:url var="addAction" value="/empdashboard/myprofile"></c:url>
 					<form:form action="${addAction}" modelAttribute="employee" method="POST">
-					<label>Enter EID</label><input type="number" name="eid" required="true">
+					<label>Enter EID</label><input type="number" name="id" required="true">
 						<br />
 						<input id="submit-button" type="submit" value="Submit">
 					</form:form>

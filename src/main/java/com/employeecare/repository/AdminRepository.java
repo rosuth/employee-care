@@ -5,7 +5,7 @@ import com.employeecare.model.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-	Admin findById(long aid);
+	Admin findById(long id);
 	Admin findByEmail(String email);
 
 }

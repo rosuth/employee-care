@@ -3,7 +3,7 @@ package com.employeecare.service;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.employeecare.model.Admin;
-import com.employeecare.web.dto.AdminRegistrationDto;
+import com.employeecare.dto.AdminRegistrationDto;
 
 public interface AdminService extends UserDetailsService{
 

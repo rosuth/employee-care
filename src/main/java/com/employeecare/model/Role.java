@@ -1,5 +1,7 @@
 package com.employeecare.model;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,15 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ROLES")
+@Data
+@Table(name = "role")
 public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")
+	@Column(name="id")
 	private Long id;
 
-	@Column(name="ROLE_NAME")
+	@Column(name="name")
 	private String name;
 
 	public Role() {
@@ -28,16 +31,4 @@ public class Role {
 		this.name = name;
 	}
 
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 }
