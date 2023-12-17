@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: employeecare
+  name: employee-care
 spec:
   rules:
-  - host: employeecare.com
+  - host: employee-care.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: employeecare
+            name: employee-care
             port:
               number: 8080

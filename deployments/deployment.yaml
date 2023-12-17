@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: employeecare-app
+  name: employee-care-app
   labels:
-    name: employeecare-app
+    name: employee-care-app
 spec:
   ports:
     - nodePort: 30164 
@@ -11,27 +11,27 @@ spec:
       targetPort: 8080  
       protocol: TCP
   selector:           
-    app: employeecare-app
+    app: employee-care-app
   type: LoadBalancer       
 
 ---
 apiVersion: apps/v1 
 kind: Deployment    
 metadata:              
-  name: employeecare-app
+  name: employee-care-app
 spec:                
   selector:         
     matchLabels:
-      app: employeecare-app
+      app: employee-care-app
   replicas: 1     
   template:
     metadata:
       labels:        
-        app: employeecare-app
+        app: employee-care-app
     spec:
       containers:
-        - name: employeecare-app
-          image: {dockerhub-username}/employeecare:1.0
+        - name: employee-care-app
+          image: {dockerhub-username}/employee-care:1.0
           ports:
             - containerPort: 8080                
           env:   

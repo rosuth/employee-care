@@ -4,4 +4,4 @@ metadata:
   name: database-configuration
 data:
  host: mysql
- name: EMPLOYEECARE  
+ name: employee_care
